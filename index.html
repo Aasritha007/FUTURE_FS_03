@@ -8,91 +8,74 @@
 
 <body>
 
-<header>
-  <h1>Fresh Mart 🛒</h1>
-  <p>Your Daily Needs, One Stop Shop</p>
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">Fresh Mart 🛒</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#products">Products</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="home" class="section">
-  <h2>Welcome to Fresh Mart</h2>
-  <p>Quality groceries, fresh vegetables, and daily essentials at best prices.</p>
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>Fresh Groceries Delivered Daily</h1>
+  <p>Quality vegetables, fruits & essentials at best prices</p>
+  <button class="btn-primary">Shop Now</button>
 </section>
 
+<!-- PRODUCTS -->
 <section id="products" class="section">
   <h2>Our Products</h2>
 
   <div class="card-container">
 
+    <!-- SAME IMAGES KEPT -->
     <div class="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="images/vegetables.JPG" alt="Vegetables">
-          <h3>Vegetables</h3>
-        </div>
-        <div class="card-back">
-          Fresh & organic vegetables daily
-        </div>
-      </div>
+      <img src="images/vegetables.JPG">
+      <h3>Vegetables</h3>
+      <p>Fresh & organic daily</p>
     </div>
 
     <div class="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="images/fruits.JPG" alt="Fruits">
-          <h3>Fruits</h3>
-        </div>
-        <div class="card-back">
-          Seasonal and fresh fruits
-        </div>
-      </div>
+      <img src="images/fruits.JPG">
+      <h3>Fruits</h3>
+      <p>Seasonal and juicy</p>
     </div>
 
     <div class="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="images/groceries.JPG" alt="Groceries">
-          <h3>Groceries</h3>
-        </div>
-        <div class="card-back">
-          Rice, oil, pulses & more
-        </div>
-      </div>
+      <img src="images/groceries.JPG">
+      <h3>Groceries</h3>
+      <p>Daily essentials</p>
     </div>
 
     <div class="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="images/drinks.JPG" alt="Drinks">
-          <h3>Drinks</h3>
-        </div>
-        <div class="card-back">
-          Juices, soft drinks, milk
-        </div>
-      </div>
+      <img src="images/drinks.JPG">
+      <h3>Drinks</h3>
+      <p>Cool & refreshing</p>
     </div>
 
   </div>
 </section>
 
-<section id="about" class="section">
+<!-- ABOUT -->
+<section id="about" class="section glass">
   <h2>About Us</h2>
-  <p>We are a trusted local departmental store serving the community with quality products and friendly service.</p>
+  <p>We are a trusted store delivering fresh and quality products to your doorstep.</p>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="section">
   <h2>Contact</h2>
-  <p>📍 Visakhaptnam</p>
+  <p>📍 Visakhapatnam</p>
   <p>📞 9876543210</p>
 
-  <button onclick="callStore()">Call Now</button>
-  <button onclick="openWhatsApp()">WhatsApp</button>
+  <div class="btn-group">
+    <button onclick="callStore()">Call Now</button>
+    <button onclick="openWhatsApp()">WhatsApp</button>
+  </div>
 </section>
 
 <footer>
