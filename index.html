@@ -1,2493 +1,670 @@
-/* ==================================================
-   FRESH MART
-   MODERN GROCERY E-COMMERCE DESIGN
-================================================== */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Mart | Freshness Delivered</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-container">
+
+            <a href="#home" class="logo">
+                <span class="logo-icon">🛒</span>
+                <span>Fresh<span>Mart</span></span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="active">Home</a>
+                <a href="#categories">Categories</a>
+                <a href="#products">Products</a>
+                <a href="#offers">Offers</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-btn" id="searchBtn" aria-label="Search">⌕</button>
+
+                <button class="cart-btn" id="cartBtn">
+                    🛒
+                    <span>Cart</span>
+                    <b id="cartCount">0</b>
+                </button>
+
+                <button class="menu-btn" id="menuBtn">☰</button>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- SEARCH -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <button id="closeSearch">×</button>
+            <h2>What are you looking for?</h2>
+            <div class="search-input">
+                <span>⌕</span>
+                <input type="text" id="searchInput" placeholder="Search vegetables, fruits, groceries...">
+            </div>
+            <p id="searchResult">Start typing to search products.</p>
+        </div>
+    </div>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="container hero-grid">
+
+            <div class="hero-content">
+
+                <div class="hero-tag">
+                    <span>🌱</span>
+                    100% Fresh & Quality Assured
+                </div>
+
+                <h1>
+                    Freshness you can
+                    <span>taste.</span>
+                </h1>
+
+                <p>
+                    Your everyday grocery store for farm-fresh vegetables,
+                    juicy fruits, quality groceries and refreshing drinks.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">
+                        Shop Fresh <span>→</span>
+                    </a>
+
+                    <a href="#categories" class="btn btn-outline">
+                        Explore Categories
+                    </a>
+                </div>
+
+                <div class="hero-features">
+                    <div>
+                        <strong>100%</strong>
+                        <small>Fresh Products</small>
+                    </div>
+
+                    <div>
+                        <strong>30 min</strong>
+                        <small>Quick Delivery</small>
+                    </div>
+
+                    <div>
+                        <strong>4.9/5</strong>
+                        <small>Customer Rating</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual">
+
+                <div class="hero-circle"></div>
+
+                <img src="images/vegetables.JPG"
+                     alt="Fresh vegetables"
+                     class="hero-image">
+
+                <div class="floating-card card-one">
+                    <span>🥬</span>
+                    <div>
+                        <strong>Farm Fresh</strong>
+                        <small>Picked today</small>
+                    </div>
+                </div>
+
+                <div class="floating-card card-two">
+                    <span>🚚</span>
+                    <div>
+                        <strong>Fast Delivery</strong>
+                        <small>At your doorstep</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 
-:root {
+
+    <!-- CATEGORIES -->
+    <section class="section categories-section" id="categories">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">SHOP BY CATEGORY</span>
+                    <h2>Everything you need,<br><span>all in one place.</span></h2>
+                </div>
+
+                <p>
+                    From farm-fresh produce to everyday essentials,
+                    find everything your family needs.
+                </p>
+            </div>
+
+
+            <div class="category-grid">
+
+                <div class="category-card category-green" data-category="vegetables">
+                    <div class="category-image">
+                        <img src="images/vegetables.JPG" alt="Vegetables">
+                    </div>
+                    <div class="category-info">
+                        <h3>Vegetables</h3>
+                        <p>Fresh & healthy</p>
+                        <span>Explore →</span>
+                    </div>
+                </div>
+
+
+                <div class="category-card category-orange" data-category="fruits">
+                    <div class="category-image">
+                        <img src="images/fruits.JPG" alt="Fruits">
+                    </div>
+                    <div class="category-info">
+                        <h3>Fresh Fruits</h3>
+                        <p>Sweet & juicy</p>
+                        <span>Explore →</span>
+                    </div>
+                </div>
+
+
+                <div class="category-card category-blue" data-category="groceries">
+                    <div class="category-image">
+                        <img src="images/groceries.JPG" alt="Groceries">
+                    </div>
+                    <div class="category-info">
+                        <h3>Groceries</h3>
+                        <p>Daily essentials</p>
+                        <span>Explore →</span>
+                    </div>
+                </div>
+
+
+                <div class="category-card category-purple" data-category="drinks">
+                    <div class="category-image">
+                        <img src="images/drinks.JPG" alt="Drinks">
+                    </div>
+                    <div class="category-info">
+                        <h3>Drinks</h3>
+                        <p>Cool & refreshing</p>
+                        <span>Explore →</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="section products-section" id="products">
+
+        <div class="container">
+
+            <div class="section-heading products-heading">
+                <div>
+                    <span class="eyebrow">OUR PRODUCTS</span>
+                    <h2>Fresh picks for<br><span>everyday living.</span></h2>
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="filter active" data-filter="all">All</button>
+                    <button class="filter" data-filter="vegetables">Vegetables</button>
+                    <button class="filter" data-filter="fruits">Fruits</button>
+                    <button class="filter" data-filter="groceries">Groceries</button>
+                    <button class="filter" data-filter="drinks">Drinks</button>
+                </div>
+            </div>
+
+
+            <div class="products-grid" id="productsGrid">
+
+                <article class="product-card" data-category="vegetables">
+
+                    <div class="product-image">
+                        <span class="product-badge">Fresh</span>
+                        <img src="images/vegetables.JPG" alt="Fresh Vegetables">
+                        <button class="quick-view" data-name="Fresh Vegetables" data-price="₹80/kg">
+                            Quick View
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <small>VEGETABLES</small>
+                        <h3>Fresh Vegetables</h3>
+
+                        <div class="rating">
+                            ★★★★★ <span>(48)</span>
+                        </div>
+
+                        <div class="product-bottom">
+                            <strong>₹80/kg</strong>
+                            <button class="add-cart"
+                                    data-name="Fresh Vegetables"
+                                    data-price="80">
+                                +
+                            </button>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <article class="product-card" data-category="fruits">
+
+                    <div class="product-image">
+                        <span class="product-badge orange">Popular</span>
+                        <img src="images/fruits.JPG" alt="Fresh Fruits">
+                        <button class="quick-view" data-name="Fresh Fruits" data-price="₹120/kg">
+                            Quick View
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <small>FRUITS</small>
+                        <h3>Fresh Fruits</h3>
+
+                        <div class="rating">
+                            ★★★★★ <span>(62)</span>
+                        </div>
+
+                        <div class="product-bottom">
+                            <strong>₹120/kg</strong>
+                            <button class="add-cart"
+                                    data-name="Fresh Fruits"
+                                    data-price="120">
+                                +
+                            </button>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <article class="product-card" data-category="groceries">
+
+                    <div class="product-image">
+                        <span class="product-badge blue">Essential</span>
+                        <img src="images/groceries.JPG" alt="Daily Groceries">
+                        <button class="quick-view" data-name="Daily Groceries" data-price="₹250">
+                            Quick View
+                        </button>
+                    </div>
 
-    --green: #174f32;
-    --green-2: #236c43;
-    --green-3: #dcebdc;
+                    <div class="product-info">
+                        <small>GROCERIES</small>
+                        <h3>Daily Groceries</h3>
 
-    --lime: #b9d86b;
+                        <div class="rating">
+                            ★★★★★ <span>(37)</span>
+                        </div>
 
-    --cream: #f7f5ed;
-    --cream-2: #efeee5;
+                        <div class="product-bottom">
+                            <strong>₹250</strong>
+                            <button class="add-cart"
+                                    data-name="Daily Groceries"
+                                    data-price="250">
+                                +
+                            </button>
+                        </div>
+                    </div>
 
-    --white: #ffffff;
+                </article>
 
-    --black: #17231c;
-    --gray: #69736d;
-    --light-gray: #a2aaa5;
 
-    --border: #dfe4dd;
+                <article class="product-card" data-category="drinks">
 
-    --shadow: 0 20px 60px rgba(20, 55, 35, 0.09);
+                    <div class="product-image">
+                        <span class="product-badge purple">Refreshing</span>
+                        <img src="images/drinks.JPG" alt="Cool Drinks">
+                        <button class="quick-view" data-name="Refreshing Drinks" data-price="₹60">
+                            Quick View
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <small>DRINKS</small>
+                        <h3>Refreshing Drinks</h3>
+
+                        <div class="rating">
+                            ★★★★★ <span>(51)</span>
+                        </div>
+
+                        <div class="product-bottom">
+                            <strong>₹60</strong>
+                            <button class="add-cart"
+                                    data-name="Refreshing Drinks"
+                                    data-price="60">
+                                +
+                            </button>
+                        </div>
+                    </div>
 
-    --radius: 22px;
-}
+                </article>
 
+            </div>
 
-/* ==================================================
-   RESET
-================================================== */
+        </div>
+    </section>
+
+
+    <!-- OFFER -->
+    <section class="offer-section" id="offers">
+
+        <div class="container">
+
+            <div class="offer-box">
+
+                <div class="offer-content">
+                    <span class="offer-label">WEEKEND SPECIAL</span>
+
+                    <h2>
+                        Fresh deals.<br>
+                        <span>Happy savings.</span>
+                    </h2>
+
+                    <p>
+                        Get up to <strong>25% OFF</strong> on selected
+                        fruits, vegetables and groceries.
+                    </p>
+
+                    <button class="btn btn-light" id="offerBtn">
+                        Shop Offers →
+                    </button>
+                </div>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+                <div class="offer-image">
+                    <img src="images/fruits.JPG" alt="Fresh fruits">
+                </div>
 
-html {
-    scroll-behavior: smooth;
-}
+            </div>
 
-body {
-    font-family: "DM Sans", sans-serif;
+        </div>
+    </section>
 
-    background: var(--cream);
 
-    color: var(--black);
+    <!-- WHY FRESH MART -->
+    <section class="section why-section" id="about">
 
-    line-height: 1.6;
+        <div class="container">
 
-    overflow-x: hidden;
-}
+            <div class="why-grid">
 
-button,
-input {
-    font-family: inherit;
-}
+                <div class="why-content">
 
-button {
-    cursor: pointer;
-}
+                    <span class="eyebrow">WHY FRESH MART?</span>
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+                    <h2>
+                        More than groceries.<br>
+                        <span>It's freshness delivered.</span>
+                    </h2>
 
-img {
-    width: 100%;
-    display: block;
-}
+                    <p>
+                        We believe good food starts with good ingredients.
+                        That's why we carefully select fresh and quality
+                        products for your everyday needs.
+                    </p>
 
+                    <div class="why-list">
 
-/* ==================================================
-   HEADER
-================================================== */
+                        <div class="why-item">
+                            <div class="why-icon">🌱</div>
+                            <div>
+                                <h3>Fresh Every Day</h3>
+                                <p>Fresh products sourced regularly.</p>
+                            </div>
+                        </div>
 
-.header {
+                        <div class="why-item">
+                            <div class="why-icon">✓</div>
+                            <div>
+                                <h3>Quality Assured</h3>
+                                <p>Every product goes through quality checks.</p>
+                            </div>
+                        </div>
 
-    height: 82px;
+                        <div class="why-item">
+                            <div class="why-icon">🚚</div>
+                            <div>
+                                <h3>Fast Delivery</h3>
+                                <p>Get your groceries delivered quickly.</p>
+                            </div>
+                        </div>
 
-    position: fixed;
+                    </div>
 
-    left: 0;
-    top: 0;
+                </div>
 
-    width: 100%;
 
-    z-index: 1000;
+                <div class="stats-card">
 
-    background: rgba(247,245,237,.94);
+                    <div class="stats-header">
+                        <span>FRESH MART</span>
+                        <span>Since 2024</span>
+                    </div>
 
-    backdrop-filter: blur(18px);
+                    <div class="big-stat">
+                        <strong>10K+</strong>
+                        <span>Happy Customers</span>
+                    </div>
 
-    border-bottom: 1px solid rgba(23,79,50,.08);
-}
+                    <div class="stat-row">
+                        <div>
+                            <strong>500+</strong>
+                            <span>Products</span>
+                        </div>
 
+                        <div>
+                            <strong>30 min</strong>
+                            <span>Delivery</span>
+                        </div>
+                    </div>
 
-.nav {
+                    <div class="stat-message">
+                        💚 Freshness is our promise.
+                    </div>
 
-    width: min(1250px, 92%);
+                </div>
 
-    height: 100%;
+            </div>
 
-    margin: auto;
+        </div>
+    </section>
 
-    display: flex;
 
-    align-items: center;
+    <!-- NEWSLETTER -->
+    <section class="newsletter" id="contact">
 
-    justify-content: space-between;
-}
+        <div class="container newsletter-box">
 
+            <div>
+                <span class="eyebrow">STAY IN THE LOOP</span>
+                <h2>Fresh updates, delivered.</h2>
+                <p>Subscribe for special offers and fresh arrivals.</p>
+            </div>
 
-/* BRAND */
+            <form id="newsletterForm">
 
-.brand {
+                <input
+                    type="email"
+                    id="emailInput"
+                    placeholder="Enter your email address"
+                    required>
 
-    display: flex;
+                <button type="submit">
+                    Subscribe →
+                </button>
 
-    align-items: center;
+            </form>
 
-    gap: 11px;
+        </div>
+    </section>
 
-    color: var(--green);
 
-    font-size: 20px;
+    <!-- FOOTER -->
+    <footer>
 
-    font-weight: 500;
-}
+        <div class="container footer-grid">
 
-.brand strong {
-    font-weight: 800;
-}
+            <div class="footer-brand">
 
-.brand small {
+                <a href="#home" class="logo">
+                    <span class="logo-icon">🛒</span>
+                    <span>Fresh<span>Mart</span></span>
+                </a>
 
-    display: block;
+                <p>
+                    Your trusted neighborhood grocery store
+                    bringing freshness to your doorstep.
+                </p>
 
-    font-size: 7px;
+                <div class="socials">
+                    <a href="#">f</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">◎</a>
+                    <a href="#">in</a>
+                </div>
 
-    letter-spacing: 2px;
+            </div>
 
-    color: var(--gray);
-}
 
+            <div>
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#categories">Categories</a>
+                <a href="#products">Products</a>
+                <a href="#offers">Offers</a>
+            </div>
 
-.brand-mark {
 
-    width: 43px;
-    height: 43px;
+            <div>
+                <h3>Categories</h3>
+                <a href="#products">Vegetables</a>
+                <a href="#products">Fruits</a>
+                <a href="#products">Groceries</a>
+                <a href="#products">Drinks</a>
+            </div>
 
-    display: grid;
 
-    place-items: center;
+            <div>
+                <h3>Contact Us</h3>
+                <p>📍 Visakhapatnam, Andhra Pradesh</p>
+                <p>📞 +91 98765 43210</p>
+                <p>✉️ hello@freshmart.com</p>
+            </div>
 
-    border-radius: 13px;
+        </div>
 
-    background: var(--green);
 
-    color: white;
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2026 Fresh Mart. All Rights Reserved.</p>
+                <p>Made with 💚 for fresh living.</p>
+            </div>
+        </div>
 
-    font-weight: 800;
+    </footer>
 
-    font-size: 12px;
 
-    letter-spacing: -1px;
-}
+    <!-- CART -->
+    <div class="cart-overlay" id="cartOverlay"></div>
 
+    <aside class="cart-drawer" id="cartDrawer">
 
-/* NAVIGATION */
+        <div class="cart-header">
+            <div>
+                <span class="eyebrow">YOUR CART</span>
+                <h2>Shopping Cart</h2>
+            </div>
 
-#mainNav {
+            <button id="closeCart">×</button>
+        </div>
 
-    display: flex;
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <div>🛒</div>
+                <h3>Your cart is empty</h3>
+                <p>Add some fresh products to get started.</p>
+            </div>
+        </div>
 
-    align-items: center;
+        <div class="cart-footer">
 
-    gap: 34px;
-}
+            <div class="cart-total">
+                <span>Total</span>
+                <strong id="cartTotal">₹0</strong>
+            </div>
 
-#mainNav a {
+            <button class="checkout-btn" id="checkoutBtn">
+                Proceed to Checkout →
+            </button>
 
-    position: relative;
+        </div>
 
-    color: #59645e;
+    </aside>
 
-    font-size: 13px;
 
-    font-weight: 600;
+    <!-- QUICK VIEW MODAL -->
+    <div class="modal-overlay" id="modalOverlay">
 
-    transition: .25s;
-}
+        <div class="quick-modal">
 
-#mainNav a:hover,
-#mainNav a.active {
+            <button class="modal-close" id="modalClose">×</button>
 
-    color: var(--green);
-}
+            <div class="modal-icon">🛍️</div>
 
-#mainNav a.active::after {
+            <span class="eyebrow">FRESH MART</span>
 
-    content: "";
+            <h2 id="modalName">Product</h2>
 
-    position: absolute;
+            <p>
+                Fresh, carefully selected and quality assured.
+                Perfect for your everyday needs.
+            </p>
 
-    width: 5px;
-    height: 5px;
+            <strong id="modalPrice">₹0</strong>
 
-    border-radius: 50%;
+            <button class="btn btn-primary" id="modalAdd">
+                Add to Cart →
+            </button>
 
-    background: var(--lime);
+        </div>
 
-    left: 50%;
+    </div>
 
-    bottom: -11px;
 
-    transform: translateX(-50%);
-}
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <span>✓</span>
+        <div>
+            <strong id="toastTitle">Added to cart</strong>
+            <small id="toastText">Product added successfully.</small>
+        </div>
+    </div>
 
 
-/* RIGHT */
+    <script src="script.js"></script>
 
-.nav-right {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-}
-
-.icon-button,
-.cart-button {
-
-    width: 43px;
-    height: 43px;
-
-    border: 1px solid var(--border);
-
-    background: white;
-
-    border-radius: 13px;
-
-    display: grid;
-
-    place-items: center;
-
-    transition: .25s;
-
-    position: relative;
-}
-
-.icon-button:hover,
-.cart-button:hover {
-
-    background: var(--green);
-
-    color: white;
-}
-
-.icon-button span {
-    font-size: 25px;
-}
-
-.cart-button span {
-    font-size: 17px;
-}
-
-.cart-button b {
-
-    position: absolute;
-
-    top: -5px;
-
-    right: -5px;
-
-    width: 19px;
-    height: 19px;
-
-    display: grid;
-
-    place-items: center;
-
-    border-radius: 50%;
-
-    background: var(--lime);
-
-    color: var(--green);
-
-    font-size: 9px;
-}
-
-.hamburger {
-    display: none;
-
-    width: 43px;
-    height: 43px;
-
-    border: 0;
-
-    background: var(--green);
-
-    color: white;
-
-    border-radius: 12px;
-
-    font-size: 18px;
-}
-
-
-/* ==================================================
-   HERO
-================================================== */
-
-.hero {
-
-    min-height: 760px;
-
-    padding: 155px max(4%, calc((100vw - 1250px) / 2)) 90px;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    align-items: center;
-
-    gap: 80px;
-
-    background:
-
-        radial-gradient(
-            circle at 78% 35%,
-            #dfeeda 0,
-            transparent 30%
-        ),
-
-        var(--cream);
-
-    overflow: hidden;
-}
-
-
-/* HERO LEFT */
-
-.hero-left {
-    max-width: 610px;
-}
-
-.hero-badge {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    padding: 8px 13px;
-
-    background: #e7f0e4;
-
-    color: var(--green);
-
-    border-radius: 30px;
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    margin-bottom: 22px;
-}
-
-.hero-badge span {
-
-    color: #73a94c;
-
-    font-size: 11px;
-}
-
-
-.hero h1 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: clamp(60px, 6.5vw, 92px);
-
-    line-height: .98;
-
-    letter-spacing: -4px;
-
-    margin-bottom: 28px;
-}
-
-.hero h1 em {
-
-    display: block;
-
-    color: var(--green);
-
-    font-style: normal;
-}
-
-
-.hero-description {
-
-    max-width: 540px;
-
-    color: var(--gray);
-
-    font-size: 16px;
-
-    line-height: 1.8;
-
-    margin-bottom: 34px;
-}
-
-
-.hero-buttons {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 25px;
-
-    margin-bottom: 40px;
-}
-
-
-.primary-button {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 25px;
-
-    padding: 15px 18px 15px 23px;
-
-    background: var(--green);
-
-    color: white;
-
-    border-radius: 10px;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    box-shadow: 0 13px 30px rgba(23,79,50,.2);
-
-    transition: .3s;
-}
-
-.primary-button span {
-
-    width: 29px;
-    height: 29px;
-
-    display: grid;
-
-    place-items: center;
-
-    border-radius: 7px;
-
-    background: rgba(255,255,255,.15);
-
-    font-size: 16px;
-}
-
-.primary-button:hover {
-
-    transform: translateY(-3px);
-
-    background: #103d26;
-}
-
-
-.text-button {
-
-    color: var(--green);
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    border-bottom: 1px solid var(--green);
-
-    padding-bottom: 3px;
-}
-
-
-/* TRUST */
-
-.hero-trust {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-}
-
-.avatars {
-
-    display: flex;
-}
-
-.avatars span {
-
-    width: 34px;
-    height: 34px;
-
-    display: grid;
-
-    place-items: center;
-
-    background: white;
-
-    border-radius: 50%;
-
-    border: 2px solid var(--cream);
-
-    margin-left: -7px;
-
-    font-size: 17px;
-}
-
-.avatars span:first-child {
-    margin-left: 0;
-}
-
-.hero-trust strong {
-
-    display: block;
-
-    font-size: 11px;
-}
-
-.hero-trust small {
-
-    color: var(--gray);
-
-    font-size: 9px;
-}
-
-
-/* HERO RIGHT */
-
-.hero-right {
-
-    position: relative;
-
-    height: 550px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-.hero-image-main {
-
-    width: 440px;
-
-    height: 500px;
-
-    overflow: hidden;
-
-    border-radius: 220px 220px 28px 28px;
-
-    transform: rotate(3deg);
-
-    box-shadow: 25px 30px 70px rgba(30,70,45,.16);
-
-    position: relative;
-
-    z-index: 2;
-}
-
-.hero-image-main::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background: linear-gradient(
-        to top,
-        rgba(12,48,29,.25),
-        transparent 45%
-    );
-}
-
-.hero-image-main img {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-}
-
-
-/* FLOATING CARDS */
-
-.floating-card {
-
-    position: absolute;
-
-    z-index: 5;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 12px 16px;
-
-    background: rgba(255,255,255,.94);
-
-    backdrop-filter: blur(10px);
-
-    border-radius: 13px;
-
-    box-shadow: var(--shadow);
-}
-
-.floating-icon {
-
-    width: 37px;
-    height: 37px;
-
-    display: grid;
-
-    place-items: center;
-
-    border-radius: 10px;
-
-    background: var(--green-3);
-}
-
-.floating-card strong,
-.floating-card small {
-
-    display: block;
-}
-
-.floating-card strong {
-    font-size: 11px;
-}
-
-.floating-card small {
-
-    color: var(--gray);
-
-    font-size: 9px;
-}
-
-.fresh-card {
-
-    left: 0;
-
-    top: 120px;
-}
-
-.delivery-card {
-
-    right: -5px;
-
-    bottom: 100px;
-}
-
-
-/* STAMP */
-
-.organic-stamp {
-
-    position: absolute;
-
-    right: 25px;
-
-    top: 40px;
-
-    width: 100px;
-    height: 100px;
-
-    border-radius: 50%;
-
-    background: var(--lime);
-
-    color: var(--green);
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    transform: rotate(12deg);
-
-    z-index: 5;
-
-    border: 2px dashed var(--green);
-}
-
-.organic-stamp span {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 24px;
-
-    font-weight: 800;
-
-    line-height: 1;
-}
-
-.organic-stamp small {
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-    font-weight: 800;
-}
-
-
-/* ==================================================
-   CATEGORY SECTION
-================================================== */
-
-.category-section {
-
-    padding: 110px max(4%, calc((100vw - 1250px) / 2));
-
-    background: white;
-}
-
-
-.section-top {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: end;
-
-    margin-bottom: 45px;
-}
-
-.eyebrow {
-
-    display: block;
-
-    color: var(--green);
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 10px;
-}
-
-.section-top h2 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 50px;
-
-    line-height: 1.05;
-
-    letter-spacing: -1.5px;
-}
-
-.section-top h2 span {
-    color: var(--green);
-}
-
-.section-top > p {
-
-    max-width: 380px;
-
-    color: var(--gray);
-
-    font-size: 13px;
-
-    line-height: 1.8;
-}
-
-
-/* CATEGORY GRID */
-
-.category-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(4,1fr);
-
-    gap: 16px;
-}
-
-.category-tile {
-
-    padding: 0;
-
-    border: 0;
-
-    overflow: hidden;
-
-    background: var(--cream);
-
-    border-radius: 20px;
-
-    text-align: left;
-
-    transition: .4s;
-}
-
-.category-tile:hover {
-
-    transform: translateY(-8px);
-
-    box-shadow: var(--shadow);
-}
-
-.category-photo {
-
-    height: 245px;
-
-    overflow: hidden;
-}
-
-.category-photo img {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    transition: .5s;
-}
-
-.category-tile:hover .category-photo img {
-
-    transform: scale(1.08);
-}
-
-
-.category-info {
-
-    padding: 20px 20px 24px;
-}
-
-.category-info > span {
-
-    color: #a1aaa4;
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: 1px;
-}
-
-.category-info h3 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 22px;
-
-    margin: 4px 0;
-}
-
-.category-info p {
-
-    color: var(--gray);
-
-    font-size: 10px;
-
-    margin-bottom: 14px;
-}
-
-.category-info b {
-
-    color: var(--green);
-
-    font-size: 10px;
-}
-
-
-/* ==================================================
-   SHOP
-================================================== */
-
-.shop-section {
-
-    padding: 110px max(4%, calc((100vw - 1250px) / 2));
-
-    background: var(--cream);
-}
-
-.shop-header {
-
-    display: flex;
-
-    align-items: end;
-
-    justify-content: space-between;
-
-    margin-bottom: 45px;
-}
-
-.shop-header h2 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 48px;
-
-    line-height: 1;
-}
-
-
-/* FILTERS */
-
-.filters {
-
-    display: flex;
-
-    gap: 7px;
-
-    flex-wrap: wrap;
-
-    justify-content: flex-end;
-}
-
-.filter {
-
-    border: 1px solid var(--border);
-
-    background: white;
-
-    color: var(--gray);
-
-    padding: 9px 15px;
-
-    border-radius: 30px;
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    transition: .25s;
-}
-
-.filter:hover,
-.filter.active {
-
-    background: var(--green);
-
-    border-color: var(--green);
-
-    color: white;
-}
-
-
-/* PRODUCTS */
-
-.product-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(4,1fr);
-
-    gap: 18px;
-}
-
-.product {
-
-    background: white;
-
-    border-radius: 19px;
-
-    overflow: hidden;
-
-    border: 1px solid #e8ebe5;
-
-    transition: .3s;
-}
-
-.product:hover {
-
-    transform: translateY(-6px);
-
-    box-shadow: var(--shadow);
-}
-
-
-.product-photo {
-
-    height: 290px;
-
-    position: relative;
-
-    overflow: hidden;
-
-    background: #e7e7df;
-}
-
-.product-photo img {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    transition: .5s;
-}
-
-.product:hover .product-photo img {
-    transform: scale(1.07);
-}
-
-
-.offer-label {
-
-    position: absolute;
-
-    top: 13px;
-    left: 13px;
-
-    z-index: 3;
-
-    padding: 6px 9px;
-
-    border-radius: 5px;
-
-    background: var(--green);
-
-    color: white;
-
-    font-size: 8px;
-
-    font-weight: 800;
-
-    letter-spacing: .8px;
-}
-
-
-.view-button {
-
-    position: absolute;
-
-    left: 12px;
-    right: 12px;
-
-    bottom: -45px;
-
-    border: 0;
-
-    padding: 11px;
-
-    background: white;
-
-    color: var(--green);
-
-    border-radius: 8px;
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    transition: .3s;
-}
-
-.product:hover .view-button {
-    bottom: 12px;
-}
-
-
-.product-details {
-
-    padding: 18px;
-}
-
-.product-details > small {
-
-    color: var(--green);
-
-    font-size: 8px;
-
-    font-weight: 800;
-
-    letter-spacing: 1px;
-}
-
-.product-details h3 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 19px;
-
-    margin: 3px 0 5px;
-}
-
-.rating {
-
-    color: #e8a92e;
-
-    font-size: 10px;
-}
-
-.rating span {
-
-    color: #929a95;
-
-    margin-left: 5px;
-
-    font-size: 9px;
-}
-
-
-.product-price {
-
-    margin-top: 16px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-}
-
-.product-price strong {
-
-    color: var(--green);
-
-    font-size: 20px;
-}
-
-.product-price del {
-
-    color: #a7aea9;
-
-    font-size: 10px;
-
-    margin-left: 5px;
-}
-
-
-.product-price button {
-
-    width: 37px;
-    height: 37px;
-
-    border: 0;
-
-    border-radius: 10px;
-
-    background: var(--green);
-
-    color: white;
-
-    font-size: 22px;
-
-    transition: .25s;
-}
-
-.product-price button:hover {
-
-    background: var(--lime);
-
-    color: var(--green);
-
-    transform: rotate(90deg);
-}
-
-
-/* ==================================================
-   OFFER SECTION
-================================================== */
-
-.offer-section {
-
-    margin: 0 max(4%, calc((100vw - 1250px) / 2));
-
-    min-height: 430px;
-
-    border-radius: 28px;
-
-    overflow: hidden;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    background: var(--green);
-
-    color: white;
-
-    position: relative;
-}
-
-.offer-content {
-
-    padding: 65px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-.eyebrow.light {
-    color: var(--lime);
-}
-
-.offer-content h2 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 52px;
-
-    line-height: 1;
-
-    margin-bottom: 20px;
-}
-
-.offer-content h2 em {
-
-    color: var(--lime);
-
-    font-style: normal;
-}
-
-.offer-content p {
-
-    max-width: 400px;
-
-    color: rgba(255,255,255,.72);
-
-    font-size: 13px;
-
-    margin-bottom: 25px;
-}
-
-.offer-button {
-
-    width: fit-content;
-
-    background: white;
-
-    color: var(--green);
-
-    padding: 13px 19px;
-
-    border-radius: 8px;
-
-    font-size: 11px;
-
-    font-weight: 800;
-}
-
-
-.offer-image {
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-.offer-image img {
-
-    height: 100%;
-
-    object-fit: cover;
-
-    opacity: .8;
-}
-
-.offer-image::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background: linear-gradient(
-        90deg,
-        var(--green),
-        transparent
-    );
-}
-
-
-.offer-circle {
-
-    position: absolute;
-
-    right: 50px;
-    top: 50%;
-
-    transform: translateY(-50%) rotate(10deg);
-
-    width: 140px;
-    height: 140px;
-
-    border-radius: 50%;
-
-    background: var(--lime);
-
-    color: var(--green);
-
-    z-index: 3;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border: 2px dashed var(--green);
-}
-
-.offer-circle strong {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 43px;
-
-    line-height: 1;
-}
-
-.offer-circle span {
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-}
-
-
-/* ==================================================
-   WHY SECTION
-================================================== */
-
-.why-section {
-
-    padding: 120px max(4%, calc((100vw - 1250px) / 2));
-
-    display: grid;
-
-    grid-template-columns: .9fr 1.1fr;
-
-    gap: 90px;
-
-    align-items: center;
-
-    background: white;
-}
-
-.why-image {
-
-    height: 550px;
-
-    border-radius: 25px;
-
-    overflow: hidden;
-}
-
-.why-image img {
-
-    height: 100%;
-
-    object-fit: cover;
-}
-
-.why-content h2 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 53px;
-
-    line-height: 1.05;
-
-    margin-bottom: 20px;
-}
-
-.why-content h2 span {
-
-    color: var(--green);
-}
-
-.why-content > p {
-
-    color: var(--gray);
-
-    font-size: 14px;
-
-    max-width: 550px;
-
-    margin-bottom: 35px;
-}
-
-
-.benefit-grid {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 25px;
-}
-
-.benefit {
-
-    display: flex;
-
-    gap: 12px;
-}
-
-.benefit > div {
-
-    flex-shrink: 0;
-
-    width: 39px;
-    height: 39px;
-
-    display: grid;
-
-    place-items: center;
-
-    background: var(--green-3);
-
-    color: var(--green);
-
-    border-radius: 10px;
-
-    font-size: 16px;
-}
-
-.benefit strong {
-
-    font-size: 12px;
-}
-
-.benefit p {
-
-    color: var(--gray);
-
-    font-size: 9px;
-
-    margin-top: 2px;
-}
-
-
-/* ==================================================
-   NUMBERS
-================================================== */
-
-.numbers {
-
-    padding: 65px max(4%, calc((100vw - 1250px) / 2));
-
-    background: var(--green);
-
-    color: white;
-
-    display: grid;
-
-    grid-template-columns: repeat(4,1fr);
-
-    text-align: center;
-}
-
-.numbers div {
-
-    border-right: 1px solid rgba(255,255,255,.15);
-}
-
-.numbers div:last-child {
-    border: 0;
-}
-
-.numbers strong {
-
-    display: block;
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 42px;
-}
-
-.numbers span {
-
-    color: rgba(255,255,255,.65);
-
-    font-size: 10px;
-}
-
-
-/* ==================================================
-   NEWSLETTER
-================================================== */
-
-.newsletter {
-
-    padding: 90px max(4%, calc((100vw - 1100px) / 2));
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 50px;
-
-    background: #e4eee1;
-}
-
-.newsletter h2 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 42px;
-
-    line-height: 1.05;
-}
-
-.newsletter form {
-
-    display: flex;
-
-    width: 480px;
-
-    padding: 5px;
-
-    background: white;
-
-    border-radius: 10px;
-}
-
-.newsletter input {
-
-    flex: 1;
-
-    border: 0;
-
-    outline: 0;
-
-    padding: 13px;
-
-    font-size: 11px;
-
-    background: transparent;
-}
-
-.newsletter button {
-
-    border: 0;
-
-    background: var(--green);
-
-    color: white;
-
-    padding: 0 20px;
-
-    border-radius: 7px;
-
-    font-size: 10px;
-
-    font-weight: 800;
-}
-
-
-/* ==================================================
-   FOOTER
-================================================== */
-
-footer {
-
-    background: #0e2117;
-
-    color: white;
-
-    padding: 65px max(4%, calc((100vw - 1250px) / 2)) 0;
-}
-
-.footer-main {
-
-    display: grid;
-
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-
-    gap: 50px;
-
-    padding-bottom: 55px;
-}
-
-.footer-logo {
-
-    color: white;
-
-    margin-bottom: 18px;
-}
-
-.footer-brand > p {
-
-    color: #839089;
-
-    max-width: 290px;
-
-    font-size: 11px;
-}
-
-.footer-column {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-}
-
-.footer-column h4 {
-
-    font-size: 12px;
-
-    margin-bottom: 8px;
-}
-
-.footer-column a,
-.footer-column p {
-
-    color: #829087;
-
-    font-size: 10px;
-
-    transition: .2s;
-}
-
-.footer-column a:hover {
-    color: white;
-}
-
-.footer-bottom {
-
-    border-top: 1px solid #26372e;
-
-    padding: 20px 0;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    color: #637068;
-
-    font-size: 9px;
-}
-
-
-/* ==================================================
-   SEARCH
-================================================== */
-
-.search-overlay {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 3000;
-
-    background: rgba(10,30,20,.72);
-
-    backdrop-filter: blur(10px);
-
-    display: none;
-
-    justify-content: center;
-
-    align-items: flex-start;
-
-    padding-top: 130px;
-}
-
-.search-overlay.show {
-    display: flex;
-}
-
-.search-box {
-
-    width: min(620px,90%);
-
-    background: white;
-
-    border-radius: 22px;
-
-    padding: 40px;
-
-    position: relative;
-
-    box-shadow: 0 30px 100px rgba(0,0,0,.25);
-}
-
-.search-box h2 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 34px;
-
-    margin-bottom: 20px;
-}
-
-.close-search {
-
-    position: absolute;
-
-    right: 20px;
-    top: 15px;
-
-    background: none;
-
-    border: 0;
-
-    font-size: 28px;
-}
-
-.search-input {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 10px;
-
-    padding: 0 15px;
-}
-
-.search-input input {
-
-    flex: 1;
-
-    padding: 15px 5px;
-
-    border: 0;
-
-    outline: 0;
-}
-
-.search-result {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 14px 0;
-
-    border-bottom: 1px solid #eee;
-}
-
-.search-result strong {
-    font-size: 12px;
-}
-
-.search-result small {
-
-    display: block;
-
-    color: var(--green);
-
-    font-size: 9px;
-}
-
-.search-result button {
-
-    border: 0;
-
-    background: var(--green);
-
-    color: white;
-
-    padding: 7px 10px;
-
-    border-radius: 6px;
-
-    font-size: 9px;
-}
-
-
-/* ==================================================
-   CART
-================================================== */
-
-.cart-backdrop {
-
-    position: fixed;
-
-    inset: 0;
-
-    background: rgba(0,0,0,.4);
-
-    z-index: 4000;
-
-    display: none;
-}
-
-.cart-backdrop.show {
-    display: block;
-}
-
-
-.cart-drawer {
-
-    position: fixed;
-
-    right: -450px;
-
-    top: 0;
-
-    width: min(430px,92%);
-
-    height: 100vh;
-
-    background: white;
-
-    z-index: 4100;
-
-    transition: .4s;
-
-    display: flex;
-
-    flex-direction: column;
-
-    box-shadow: -20px 0 60px rgba(0,0,0,.15);
-}
-
-.cart-drawer.show {
-    right: 0;
-}
-
-.cart-top {
-
-    padding: 30px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    border-bottom: 1px solid var(--border);
-}
-
-.cart-top h2 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 27px;
-}
-
-.cart-top button {
-
-    border: 0;
-
-    background: none;
-
-    font-size: 28px;
-}
-
-.cart-products {
-
-    flex: 1;
-
-    padding: 20px;
-
-    overflow-y: auto;
-}
-
-.empty-cart {
-
-    height: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-}
-
-.empty-cart > div {
-    font-size: 50px;
-}
-
-.empty-cart h3 {
-    margin: 10px 0 3px;
-}
-
-.empty-cart p {
-
-    color: var(--gray);
-
-    font-size: 11px;
-}
-
-
-.cart-item {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 17px 0;
-
-    border-bottom: 1px solid var(--border);
-}
-
-.cart-item h4 {
-
-    font-size: 12px;
-}
-
-.cart-item p {
-
-    color: var(--green);
-
-    font-size: 10px;
-}
-
-.remove-cart {
-
-    width: 28px;
-    height: 28px;
-
-    border: 0;
-
-    border-radius: 7px;
-
-    background: #f6e7e5;
-
-    color: #b5483c;
-}
-
-.cart-bottom {
-
-    padding: 25px;
-
-    border-top: 1px solid var(--border);
-}
-
-.total-row {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    margin-bottom: 17px;
-}
-
-.total-row strong {
-
-    color: var(--green);
-
-    font-size: 21px;
-}
-
-.cart-bottom > button {
-
-    width: 100%;
-
-    padding: 15px;
-
-    border: 0;
-
-    background: var(--green);
-
-    color: white;
-
-    border-radius: 9px;
-
-    font-weight: 700;
-}
-
-
-/* ==================================================
-   QUICK VIEW
-================================================== */
-
-.modal {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 5000;
-
-    display: none;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: rgba(0,0,0,.5);
-
-    padding: 20px;
-}
-
-.modal.show {
-    display: flex;
-}
-
-.modal-box {
-
-    width: min(400px,100%);
-
-    padding: 45px;
-
-    text-align: center;
-
-    background: white;
-
-    border-radius: 23px;
-
-    position: relative;
-}
-
-.modal-close {
-
-    position: absolute;
-
-    top: 15px;
-    right: 18px;
-
-    border: 0;
-
-    background: none;
-
-    font-size: 25px;
-}
-
-.modal-symbol {
-
-    width: 70px;
-    height: 70px;
-
-    margin: auto auto 20px;
-
-    display: grid;
-
-    place-items: center;
-
-    border-radius: 20px;
-
-    background: var(--green-3);
-
-    font-size: 28px;
-}
-
-.modal-box h2 {
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 30px;
-}
-
-.modal-box p {
-
-    color: var(--gray);
-
-    font-size: 11px;
-
-    margin: 12px 0 20px;
-}
-
-.modal-box > strong {
-
-    display: block;
-
-    color: var(--green);
-
-    font-size: 25px;
-
-    margin-bottom: 20px;
-}
-
-.modal-box > button {
-
-    width: 100%;
-
-    padding: 14px;
-
-    border: 0;
-
-    border-radius: 8px;
-
-    background: var(--green);
-
-    color: white;
-
-    font-weight: 700;
-}
-
-
-/* ==================================================
-   TOAST
-================================================== */
-
-.toast {
-
-    position: fixed;
-
-    right: 25px;
-
-    bottom: 25px;
-
-    z-index: 6000;
-
-    background: #12261a;
-
-    color: white;
-
-    padding: 12px 16px;
-
-    border-radius: 10px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    transform: translateY(100px);
-
-    opacity: 0;
-
-    transition: .3s;
-}
-
-.toast.show {
-
-    transform: translateY(0);
-
-    opacity: 1;
-}
-
-.toast span {
-
-    width: 23px;
-    height: 23px;
-
-    display: grid;
-
-    place-items: center;
-
-    border-radius: 50%;
-
-    background: var(--lime);
-
-    color: var(--green);
-
-    font-size: 11px;
-}
-
-.toast p {
-    font-size: 10px;
-}
-
-
-/* ==================================================
-   RESPONSIVE
-================================================== */
-
-@media (max-width: 1050px) {
-
-    .hero {
-
-        gap: 30px;
-
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .hero h1 {
-        font-size: 65px;
-    }
-
-    .hero-image-main {
-
-        width: 360px;
-        height: 450px;
-    }
-
-    .category-grid,
-    .product-grid {
-
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .category-photo {
-        height: 260px;
-    }
-
-    .why-section {
-
-        gap: 50px;
-    }
-
-}
-
-
-@media (max-width: 800px) {
-
-    #mainNav {
-
-        position: absolute;
-
-        top: 82px;
-
-        left: 0;
-        right: 0;
-
-        background: white;
-
-        display: none;
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        padding: 25px;
-
-        gap: 20px;
-
-        box-shadow: 0 20px 30px rgba(0,0,0,.08);
-    }
-
-    #mainNav.show {
-        display: flex;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .hero {
-
-        grid-template-columns: 1fr;
-
-        padding-top: 130px;
-
-        text-align: center;
-    }
-
-    .hero-left {
-        margin: auto;
-    }
-
-    .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons,
-    .hero-trust {
-        justify-content: center;
-    }
-
-    .hero-right {
-        height: 500px;
-    }
-
-    .section-top,
-    .shop-header {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 20px;
-    }
-
-    .filters {
-        justify-content: flex-start;
-    }
-
-    .offer-section {
-
-        grid-template-columns: 1fr;
-    }
-
-    .offer-image {
-        height: 280px;
-    }
-
-    .why-section {
-
-        grid-template-columns: 1fr;
-    }
-
-    .why-image {
-        height: 400px;
-    }
-
-    .newsletter {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-    .newsletter form {
-        width: 100%;
-    }
-
-    .footer-main {
-
-        grid-template-columns: 1fr 1fr;
-    }
-
-}
-
-
-@media (max-width: 550px) {
-
-    .brand {
-        font-size: 17px;
-    }
-
-    .brand-mark {
-
-        width: 38px;
-        height: 38px;
-    }
-
-    .hero {
-
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    .hero h1 {
-
-        font-size: 51px;
-
-        letter-spacing: -2px;
-    }
-
-    .hero-buttons {
-
-        flex-direction: column;
-    }
-
-    .hero-right {
-        height: 430px;
-    }
-
-    .hero-image-main {
-
-        width: 290px;
-
-        height: 380px;
-    }
-
-    .fresh-card {
-        left: 0;
-        top: 80px;
-    }
-
-    .delivery-card {
-        right: 0;
-        bottom: 50px;
-    }
-
-    .organic-stamp {
-
-        width: 75px;
-        height: 75px;
-
-        right: 5px;
-    }
-
-    .organic-stamp span {
-        font-size: 18px;
-    }
-
-    .category-grid,
-    .product-grid {
-
-        grid-template-columns: 1fr;
-    }
-
-    .section-top h2,
-    .shop-header h2 {
-
-        font-size: 40px;
-    }
-
-    .offer-content {
-
-        padding: 40px 30px;
-    }
-
-    .offer-content h2 {
-        font-size: 40px;
-    }
-
-    .why-content h2 {
-        font-size: 40px;
-    }
-
-    .benefit-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .numbers {
-
-        grid-template-columns: 1fr 1fr;
-
-        gap: 30px;
-    }
-
-    .numbers div:nth-child(2) {
-        border: 0;
-    }
-
-    .newsletter h2 {
-        font-size: 36px;
-    }
-
-    .newsletter form {
-
-        flex-direction: column;
-
-        background: transparent;
-
-        gap: 8px;
-
-        padding: 0;
-    }
-
-    .newsletter input {
-
-        background: white;
-
-        border-radius: 8px;
-    }
-
-    .newsletter button {
-
-        padding: 13px;
-    }
-
-    .footer-main {
-
-        grid-template-columns: 1fr;
-    }
-
-    .footer-bottom {
-
-        flex-direction: column;
-
-        gap: 7px;
-    }
-
-}
+</body>
+</html>
