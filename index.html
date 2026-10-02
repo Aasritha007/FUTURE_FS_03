@@ -1,18 +1,1221 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Fresh Mart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fresh Mart | Fresh Groceries Delivered</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <h1 style="color:green; text-align:center;">
-        FRESH MART
-    </h1>
+    <!-- ================= NAVBAR ================= -->
 
-    <h2 style="text-align:center;">
-        Website is working!
-    </h2>
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="#home" class="logo">
+                <div class="logo-icon">🛒</div>
+                <div>
+                    Fresh<span>Mart</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="#home" class="active">Home</a>
+
+                <a href="#categories">
+                    Categories
+                </a>
+
+                <a href="#products">
+                    Products
+                </a>
+
+                <a href="#offers">
+                    Offers
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </nav>
+
+            <div class="nav-buttons">
+
+                <button class="search-button" id="searchButton">
+                    🔍
+                </button>
+
+                <button class="cart-button" id="cartButton">
+
+                    🛒
+
+                    <span>
+                        Cart
+                    </span>
+
+                    <b id="cartCount">
+                        0
+                    </b>
+
+                </button>
+
+                <button class="menu-button" id="menuButton">
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="container hero-container">
+
+                <div class="hero-content">
+
+                    <div class="small-label">
+                        🌱 100% FRESH & QUALITY ASSURED
+                    </div>
+
+                    <h1>
+                        Fresh food.
+                        <br>
+                        <span>Happy life.</span>
+                    </h1>
+
+                    <p>
+                        Discover fresh vegetables, juicy fruits,
+                        daily groceries and refreshing drinks —
+                        all delivered straight to your doorstep.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#products" class="primary-button">
+                            Shop Now
+                            <span>→</span>
+                        </a>
+
+                        <a href="#categories" class="secondary-button">
+                            Explore Categories
+                        </a>
+
+                    </div>
+
+                    <div class="hero-stats">
+
+                        <div>
+                            <strong>10K+</strong>
+                            <span>Happy Customers</span>
+                        </div>
+
+                        <div>
+                            <strong>500+</strong>
+                            <span>Fresh Products</span>
+                        </div>
+
+                        <div>
+                            <strong>30 min</strong>
+                            <span>Fast Delivery</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-image-area">
+
+                    <div class="hero-background-circle"></div>
+
+                    <img
+                        src="images/vegetables.JPG"
+                        alt="Fresh vegetables"
+                        class="hero-main-image"
+                    >
+
+                    <div class="floating-card floating-card-one">
+
+                        <div class="floating-icon">
+                            🥬
+                        </div>
+
+                        <div>
+                            <strong>
+                                Farm Fresh
+                            </strong>
+
+                            <small>
+                                Freshly picked
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="floating-card floating-card-two">
+
+                        <div class="floating-icon">
+                            🚚
+                        </div>
+
+                        <div>
+                            <strong>
+                                Quick Delivery
+                            </strong>
+
+                            <small>
+                                At your doorstep
+                            </small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORIES ================= -->
+
+        <section class="categories section" id="categories">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span>
+                            SHOP BY CATEGORY
+                        </span>
+
+                        <h2>
+                            Everything fresh,
+                            <br>
+                            <em>all in one place.</em>
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        From farm-fresh vegetables to everyday
+                        essentials, find everything your family needs.
+                    </p>
+
+                </div>
+
+
+                <div class="category-grid">
+
+
+                    <div class="category-card green-card">
+
+                        <div class="category-image">
+
+                            <img
+                                src="images/vegetables.JPG"
+                                alt="Fresh vegetables"
+                            >
+
+                        </div>
+
+                        <div class="category-content">
+
+                            <span class="category-number">
+                                01
+                            </span>
+
+                            <h3>
+                                Vegetables
+                            </h3>
+
+                            <p>
+                                Farm fresh & healthy
+                            </p>
+
+                            <a href="#products">
+                                Shop now →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="category-card orange-card">
+
+                        <div class="category-image">
+
+                            <img
+                                src="images/fruits.JPG"
+                                alt="Fresh fruits"
+                            >
+
+                        </div>
+
+                        <div class="category-content">
+
+                            <span class="category-number">
+                                02
+                            </span>
+
+                            <h3>
+                                Fresh Fruits
+                            </h3>
+
+                            <p>
+                                Sweet, juicy & delicious
+                            </p>
+
+                            <a href="#products">
+                                Shop now →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="category-card blue-card">
+
+                        <div class="category-image">
+
+                            <img
+                                src="images/groceries.JPG"
+                                alt="Groceries"
+                            >
+
+                        </div>
+
+                        <div class="category-content">
+
+                            <span class="category-number">
+                                03
+                            </span>
+
+                            <h3>
+                                Groceries
+                            </h3>
+
+                            <p>
+                                Everyday essentials
+                            </p>
+
+                            <a href="#products">
+                                Shop now →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="category-card purple-card">
+
+                        <div class="category-image">
+
+                            <img
+                                src="images/drinks.JPG"
+                                alt="Drinks"
+                            >
+
+                        </div>
+
+                        <div class="category-content">
+
+                            <span class="category-number">
+                                04
+                            </span>
+
+                            <h3>
+                                Beverages
+                            </h3>
+
+                            <p>
+                                Cool & refreshing
+                            </p>
+
+                            <a href="#products">
+                                Shop now →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PRODUCTS ================= -->
+
+        <section class="products section" id="products">
+
+            <div class="container">
+
+                <div class="section-heading product-heading">
+
+                    <div>
+
+                        <span>
+                            OUR PRODUCTS
+                        </span>
+
+                        <h2>
+                            Fresh picks for
+                            <br>
+                            <em>everyday living.</em>
+                        </h2>
+
+                    </div>
+
+
+                    <div class="filter-buttons">
+
+                        <button class="filter active" data-filter="all">
+                            All
+                        </button>
+
+                        <button class="filter" data-filter="vegetables">
+                            Vegetables
+                        </button>
+
+                        <button class="filter" data-filter="fruits">
+                            Fruits
+                        </button>
+
+                        <button class="filter" data-filter="groceries">
+                            Groceries
+                        </button>
+
+                        <button class="filter" data-filter="drinks">
+                            Drinks
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-grid">
+
+
+                    <!-- PRODUCT 1 -->
+
+                    <div class="product-card" data-category="vegetables">
+
+                        <div class="product-image">
+
+                            <span class="product-tag">
+                                Fresh
+                            </span>
+
+                            <img
+                                src="images/vegetables.JPG"
+                                alt="Vegetables"
+                            >
+
+                            <button
+                                class="quick-view"
+                                data-product="Fresh Vegetables"
+                                data-price="80"
+                            >
+                                Quick View
+                            </button>
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <small>
+                                VEGETABLES
+                            </small>
+
+                            <h3>
+                                Fresh Vegetables
+                            </h3>
+
+                            <div class="stars">
+                                ★★★★★
+                                <span>
+                                    4.9
+                                </span>
+                            </div>
+
+                            <div class="product-bottom">
+
+                                <strong>
+                                    ₹80/kg
+                                </strong>
+
+                                <button
+                                    class="add-cart"
+                                    data-name="Fresh Vegetables"
+                                    data-price="80"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PRODUCT 2 -->
+
+                    <div class="product-card" data-category="fruits">
+
+                        <div class="product-image">
+
+                            <span class="product-tag orange">
+                                Popular
+                            </span>
+
+                            <img
+                                src="images/fruits.JPG"
+                                alt="Fresh fruits"
+                            >
+
+                            <button
+                                class="quick-view"
+                                data-product="Fresh Fruits"
+                                data-price="120"
+                            >
+                                Quick View
+                            </button>
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <small>
+                                FRUITS
+                            </small>
+
+                            <h3>
+                                Fresh Fruits
+                            </h3>
+
+                            <div class="stars">
+                                ★★★★★
+                                <span>
+                                    4.8
+                                </span>
+                            </div>
+
+                            <div class="product-bottom">
+
+                                <strong>
+                                    ₹120/kg
+                                </strong>
+
+                                <button
+                                    class="add-cart"
+                                    data-name="Fresh Fruits"
+                                    data-price="120"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PRODUCT 3 -->
+
+                    <div class="product-card" data-category="groceries">
+
+                        <div class="product-image">
+
+                            <span class="product-tag blue">
+                                Essential
+                            </span>
+
+                            <img
+                                src="images/groceries.JPG"
+                                alt="Groceries"
+                            >
+
+                            <button
+                                class="quick-view"
+                                data-product="Daily Groceries"
+                                data-price="250"
+                            >
+                                Quick View
+                            </button>
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <small>
+                                GROCERIES
+                            </small>
+
+                            <h3>
+                                Daily Groceries
+                            </h3>
+
+                            <div class="stars">
+                                ★★★★★
+                                <span>
+                                    4.9
+                                </span>
+                            </div>
+
+                            <div class="product-bottom">
+
+                                <strong>
+                                    ₹250
+                                </strong>
+
+                                <button
+                                    class="add-cart"
+                                    data-name="Daily Groceries"
+                                    data-price="250"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PRODUCT 4 -->
+
+                    <div class="product-card" data-category="drinks">
+
+                        <div class="product-image">
+
+                            <span class="product-tag purple">
+                                Refreshing
+                            </span>
+
+                            <img
+                                src="images/drinks.JPG"
+                                alt="Refreshing drinks"
+                            >
+
+                            <button
+                                class="quick-view"
+                                data-product="Refreshing Drinks"
+                                data-price="60"
+                            >
+                                Quick View
+                            </button>
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <small>
+                                BEVERAGES
+                            </small>
+
+                            <h3>
+                                Refreshing Drinks
+                            </h3>
+
+                            <div class="stars">
+                                ★★★★★
+                                <span>
+                                    4.8
+                                </span>
+                            </div>
+
+                            <div class="product-bottom">
+
+                                <strong>
+                                    ₹60
+                                </strong>
+
+                                <button
+                                    class="add-cart"
+                                    data-name="Refreshing Drinks"
+                                    data-price="60"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= OFFER ================= -->
+
+        <section class="offer" id="offers">
+
+            <div class="container">
+
+                <div class="offer-container">
+
+                    <div class="offer-content">
+
+                        <span>
+                            WEEKEND SPECIAL
+                        </span>
+
+                        <h2>
+                            Fresh deals.
+                            <br>
+                            <em>Happy savings.</em>
+                        </h2>
+
+                        <p>
+                            Save up to <strong>25% OFF</strong>
+                            on selected fruits, vegetables and
+                            everyday groceries.
+                        </p>
+
+                        <a href="#products" class="white-button">
+                            Shop Offers →
+                        </a>
+
+                    </div>
+
+
+                    <div class="offer-image">
+
+                        <img
+                            src="images/fruits.JPG"
+                            alt="Fresh fruit offer"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="about section" id="about">
+
+            <div class="container about-container">
+
+                <div class="about-content">
+
+                    <span>
+                        WHY FRESH MART?
+                    </span>
+
+                    <h2>
+                        More than groceries.
+                        <br>
+                        <em>Freshness delivered.</em>
+                    </h2>
+
+                    <p>
+                        We believe good food begins with good
+                        ingredients. That's why we carefully select
+                        quality products for your everyday needs.
+                    </p>
+
+
+                    <div class="benefits">
+
+                        <div class="benefit">
+
+                            <div class="benefit-icon">
+                                🌱
+                            </div>
+
+                            <div>
+                                <h3>
+                                    Farm Fresh
+                                </h3>
+
+                                <p>
+                                    Fresh products sourced regularly.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="benefit">
+
+                            <div class="benefit-icon">
+                                ✓
+                            </div>
+
+                            <div>
+                                <h3>
+                                    Quality Assured
+                                </h3>
+
+                                <p>
+                                    Carefully checked for quality.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="benefit">
+
+                            <div class="benefit-icon">
+                                🚚
+                            </div>
+
+                            <div>
+                                <h3>
+                                    Fast Delivery
+                                </h3>
+
+                                <p>
+                                    Quick delivery to your doorstep.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-card">
+
+                    <div class="about-card-top">
+
+                        <span>
+                            FRESH MART
+                        </span>
+
+                        <span>
+                            EST. 2024
+                        </span>
+
+                    </div>
+
+
+                    <div class="customer-number">
+
+                        <strong>
+                            10K+
+                        </strong>
+
+                        <span>
+                            Happy Customers
+                        </span>
+
+                    </div>
+
+
+                    <div class="mini-stats">
+
+                        <div>
+                            <strong>
+                                500+
+                            </strong>
+
+                            <span>
+                                Products
+                            </span>
+                        </div>
+
+                        <div>
+                            <strong>
+                                4.9/5
+                            </strong>
+
+                            <span>
+                                Rating
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-message">
+                        💚 Freshness is our promise.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= NEWSLETTER ================= -->
+
+        <section class="newsletter">
+
+            <div class="container newsletter-container">
+
+                <div>
+
+                    <span>
+                        STAY UPDATED
+                    </span>
+
+                    <h2>
+                        Fresh updates,
+                        <br>
+                        <em>delivered.</em>
+                    </h2>
+
+                    <p>
+                        Subscribe for special offers and fresh arrivals.
+                    </p>
+
+                </div>
+
+
+                <form id="newsletterForm">
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email address"
+                        required
+                    >
+
+                    <button type="submit">
+                        Subscribe →
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contact">
+
+        <div class="container footer-container">
+
+
+            <div class="footer-brand">
+
+                <a href="#home" class="logo footer-logo">
+
+                    <div class="logo-icon">
+                        🛒
+                    </div>
+
+                    <div>
+                        Fresh<span>Mart</span>
+                    </div>
+
+                </a>
+
+                <p>
+                    Your trusted neighborhood grocery store,
+                    bringing freshness to your doorstep.
+                </p>
+
+                <div class="social-icons">
+
+                    <a href="#">
+                        f
+                    </a>
+
+                    <a href="#">
+                        𝕏
+                    </a>
+
+                    <a href="#">
+                        ◎
+                    </a>
+
+                    <a href="#">
+                        in
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#categories">
+                    Categories
+                </a>
+
+                <a href="#products">
+                    Products
+                </a>
+
+                <a href="#offers">
+                    Offers
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Categories
+                </h3>
+
+                <a href="#products">
+                    Vegetables
+                </a>
+
+                <a href="#products">
+                    Fruits
+                </a>
+
+                <a href="#products">
+                    Groceries
+                </a>
+
+                <a href="#products">
+                    Beverages
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Contact Us
+                </h3>
+
+                <p>
+                    📍 Visakhapatnam, Andhra Pradesh
+                </p>
+
+                <p>
+                    📞 +91 98765 43210
+                </p>
+
+                <p>
+                    ✉️ hello@freshmart.com
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <p>
+                    © 2026 Fresh Mart. All Rights Reserved.
+                </p>
+
+                <p>
+                    Made with 💚 for fresh living.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= CART SIDEBAR ================= -->
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <aside class="cart-sidebar" id="cartSidebar">
+
+        <div class="cart-header">
+
+            <div>
+
+                <span>
+                    YOUR CART
+                </span>
+
+                <h2>
+                    Shopping Cart
+                </h2>
+
+            </div>
+
+            <button id="closeCart">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="cart-items" id="cartItems">
+
+            <div class="empty-cart">
+
+                <div>
+                    🛒
+                </div>
+
+                <h3>
+                    Your cart is empty
+                </h3>
+
+                <p>
+                    Add some fresh products to get started.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="cartTotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+            <button id="checkoutButton">
+                Proceed to Checkout →
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= QUICK VIEW ================= -->
+
+    <div class="modal" id="productModal">
+
+        <div class="modal-box">
+
+            <button class="modal-close" id="modalClose">
+                ×
+            </button>
+
+            <div class="modal-icon">
+                🛍️
+            </div>
+
+            <span>
+                FRESH MART
+            </span>
+
+            <h2 id="modalProductName">
+                Product
+            </h2>
+
+            <p>
+                Fresh, quality assured and perfect for
+                your everyday needs.
+            </p>
+
+            <strong id="modalProductPrice">
+                ₹0
+            </strong>
+
+            <button id="modalAddButton">
+                Add to Cart →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TOAST ================= -->
+
+    <div class="toast" id="toast">
+
+        <div class="toast-icon">
+            ✓
+        </div>
+
+        <div>
+
+            <strong id="toastTitle">
+                Added to cart
+            </strong>
+
+            <small id="toastMessage">
+                Product added successfully.
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
