@@ -1,213 +1,235 @@
-/* ============================================
-   FRESH MART - JAVASCRIPT
-============================================ */
+/* ==================================================
+   FRESH MART JAVASCRIPT
+================================================== */
 
 
-/* ============================================
+/* ==================================================
    MOBILE MENU
-============================================ */
+================================================== */
 
 function toggleMenu() {
 
-    const navbar = document.getElementById("navbar");
-
-    navbar.classList.toggle("show");
+    document
+        .getElementById("mainNav")
+        .classList.toggle("show");
 
 }
 
 
-/* Close mobile menu when clicking a link */
+/* Close menu after clicking */
 
-document.querySelectorAll(".nav-link").forEach(link => {
+document.querySelectorAll("#mainNav a").forEach(link => {
 
     link.addEventListener("click", () => {
 
-        document.getElementById("navbar").classList.remove("show");
+        document
+            .getElementById("mainNav")
+            .classList.remove("show");
 
     });
 
 });
 
 
-/* ============================================
-   SEARCH
-============================================ */
+/* ==================================================
+   CART
+================================================== */
 
-function openSearch() {
-
-    const overlay = document.getElementById("searchOverlay");
-
-    overlay.classList.add("show");
-
-    setTimeout(() => {
-
-        document.getElementById("searchInput").focus();
-
-    }, 100);
-
-}
+let cart = [];
 
 
-function closeSearch() {
+function addToCart(name, price) {
 
-    document.getElementById("searchOverlay")
-        .classList.remove("show");
-
-    document.getElementById("searchInput").value = "";
-
-    document.getElementById("searchResults").innerHTML = "";
-
-}
-
-
-function searchProducts() {
-
-    const search =
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
-
-    const results =
-        document.getElementById("searchResults");
-
-    if (search === "") {
-
-        results.innerHTML = "";
-
-        return;
-    }
-
-    const products = [
-
-        {
-            name: "Fresh Fruit Basket",
-            category: "Fruits",
-            price: 299
-        },
-
-        {
-            name: "Farm Fresh Vegetables",
-            category: "Vegetables",
-            price: 199
-        },
-
-        {
-            name: "Daily Grocery Essentials",
-            category: "Groceries",
-            price: 499
-        },
-
-        {
-            name: "Refreshing Beverages",
-            category: "Drinks",
-            price: 149
-        }
-
-    ];
-
-
-    const matches = products.filter(product =>
-
-        product.name.toLowerCase().includes(search) ||
-
-        product.category.toLowerCase().includes(search)
-
+    const existing = cart.find(
+        item => item.name === name
     );
 
 
-    if (matches.length === 0) {
+    if (existing) {
 
-        results.innerHTML = `
-            <p style="
-                color:#777;
-                text-align:center;
-                padding:20px;
-            ">
-                No products found.
-            </p>
-        `;
+        existing.quantity += 1;
 
-        return;
+    } else {
+
+        cart.push({
+
+            name: name,
+
+            price: price,
+
+            quantity: 1
+
+        });
+
     }
 
 
-    results.innerHTML = matches.map(product => `
+    updateCart();
 
-        <div style="
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:14px 0;
-            border-bottom:1px solid #eee;
-        ">
+    showToast(`${name} added to cart`);
+
+}
+
+
+function updateCart() {
+
+    const count =
+        document.getElementById("cartCount");
+
+    const products =
+        document.getElementById("cartProducts");
+
+    const total =
+        document.getElementById("cartTotal");
+
+
+    let itemCount = 0;
+
+    let totalPrice = 0;
+
+
+    cart.forEach(item => {
+
+        itemCount += item.quantity;
+
+        totalPrice +=
+            item.price * item.quantity;
+
+    });
+
+
+    count.textContent = itemCount;
+
+    total.textContent = `₹${totalPrice}`;
+
+
+    if (cart.length === 0) {
+
+        products.innerHTML = `
+
+            <div class="empty-cart">
+
+                <div>🛒</div>
+
+                <h3>Your cart is empty</h3>
+
+                <p>
+                    Add something fresh to get started.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    products.innerHTML = cart.map(
+        (item, index) => `
+
+        <div class="cart-item">
 
             <div>
 
-                <strong style="font-size:13px;">
-                    ${product.name}
-                </strong>
+                <h4>${item.name}</h4>
 
-                <small style="
-                    display:block;
-                    color:#1f6b45;
-                ">
-                    ${product.category}
-                </small>
+                <p>
+                    ₹${item.price}
+                    ×
+                    ${item.quantity}
+                </p>
 
             </div>
 
             <button
-                onclick="addToCart('${product.name}', ${product.price})"
-                style="
-                    background:#1f6b45;
-                    color:white;
-                    border:0;
-                    padding:7px 12px;
-                    border-radius:6px;
-                    cursor:pointer;
-                "
+                class="remove-cart"
+                onclick="removeFromCart(${index})"
             >
-                Add ₹${product.price}
+                ×
             </button>
 
         </div>
 
-    `).join("");
+    `
+    ).join("");
 
 }
 
 
-/* ============================================
+function removeFromCart(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+
+    showToast("Item removed from cart");
+
+}
+
+
+/* ==================================================
+   OPEN CART
+================================================== */
+
+function openCart() {
+
+    document
+        .getElementById("cartDrawer")
+        .classList.add("show");
+
+    document
+        .getElementById("cartBackdrop")
+        .classList.add("show");
+
+}
+
+
+function closeCart() {
+
+    document
+        .getElementById("cartDrawer")
+        .classList.remove("show");
+
+    document
+        .getElementById("cartBackdrop")
+        .classList.remove("show");
+
+}
+
+
+/* ==================================================
    PRODUCT FILTER
-============================================ */
+================================================== */
 
 function filterProducts(category) {
 
     const products =
-        document.querySelectorAll(".product-card");
+        document.querySelectorAll(".product");
 
-    const buttons =
-        document.querySelectorAll(".filter-btn");
+    const filters =
+        document.querySelectorAll(".filter");
 
 
-    buttons.forEach(button => {
+    filters.forEach(button => {
 
         button.classList.remove("active");
 
     });
 
 
-    buttons.forEach(button => {
+    filters.forEach(button => {
 
-        const text = button.textContent
-            .trim()
-            .toLowerCase();
+        const value =
+            button.textContent
+                .trim()
+                .toLowerCase();
+
 
         if (
-            (category === "all" && text === "all") ||
-            text === category ||
-            (category === "drinks" && text === "drinks")
+            (category === "all" && value === "all") ||
+            value === category
         ) {
 
             button.classList.add("active");
@@ -230,12 +252,6 @@ function filterProducts(category) {
 
             product.style.display = "block";
 
-            setTimeout(() => {
-
-                product.style.opacity = "1";
-
-            }, 10);
-
         } else {
 
             product.style.display = "none";
@@ -245,108 +261,199 @@ function filterProducts(category) {
     });
 
 
-    /* Scroll to products when category card is clicked */
-
-    const productSection =
-        document.getElementById("products");
-
-    if (
-        category !== "all" &&
-        event &&
-        event.target &&
-        event.target.closest(".category-card")
-    ) {
-
-        productSection.scrollIntoView({
-            behavior: "smooth"
+    document
+        .getElementById("products")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
         });
-
-    }
 
 }
 
 
-/* ============================================
-   SHOPPING CART
-============================================ */
+/* ==================================================
+   QUICK VIEW
+================================================== */
 
-let cart = [];
-
-
-function addToCart(name, price) {
-
-    const existing =
-        cart.find(item => item.name === name);
+let selectedProduct = null;
 
 
-    if (existing) {
+function quickView(name, price) {
 
-        existing.quantity++;
+    selectedProduct = {
 
-    } else {
+        name: name,
 
-        cart.push({
-            name: name,
-            price: price,
-            quantity: 1
-        });
+        price: price
 
-    }
+    };
 
 
-    updateCart();
+    document
+        .getElementById("modalName")
+        .textContent = name;
 
-    showToast(`${name} added to your cart!`);
+
+    document
+        .getElementById("modalPrice")
+        .textContent = `₹${price}`;
+
+
+    document
+        .getElementById("quickModal")
+        .classList.add("show");
 
 }
 
 
-function updateCart() {
+function closeQuickView() {
 
-    const cartCount =
-        document.getElementById("cartCount");
+    document
+        .getElementById("quickModal")
+        .classList.remove("show");
 
-    const cartItems =
-        document.getElementById("cartItems");
-
-    const cartTotal =
-        document.getElementById("cartTotal");
+}
 
 
-    let totalItems = 0;
+function addModalProduct() {
 
-    let totalPrice = 0;
-
-
-    cart.forEach(item => {
-
-        totalItems += item.quantity;
-
-        totalPrice +=
-            item.price * item.quantity;
-
-    });
+    if (!selectedProduct) {
+        return;
+    }
 
 
-    cartCount.textContent = totalItems;
+    addToCart(
+        selectedProduct.name,
+        selectedProduct.price
+    );
 
-    cartTotal.textContent =
-        `₹${totalPrice}`;
+
+    closeQuickView();
+
+}
 
 
-    if (cart.length === 0) {
+/* ==================================================
+   SEARCH
+================================================== */
 
-        cartItems.innerHTML = `
+function openSearch() {
 
-            <div class="empty-cart">
+    document
+        .getElementById("searchOverlay")
+        .classList.add("show");
 
-                <span>🛒</span>
 
-                <h3>Your cart is empty</h3>
+    setTimeout(() => {
 
-                <p>Add some fresh products!</p>
+        document
+            .getElementById("searchInput")
+            .focus();
 
-            </div>
+    }, 100);
+
+}
+
+
+function closeSearch() {
+
+    document
+        .getElementById("searchOverlay")
+        .classList.remove("show");
+
+
+    document
+        .getElementById("searchInput")
+        .value = "";
+
+
+    document
+        .getElementById("searchResults")
+        .innerHTML = "";
+
+}
+
+
+const searchableProducts = [
+
+    {
+        name: "Fresh Fruit Basket",
+        category: "Fruits",
+        price: 299
+    },
+
+    {
+        name: "Farm Fresh Vegetables",
+        category: "Vegetables",
+        price: 199
+    },
+
+    {
+        name: "Daily Grocery Pack",
+        category: "Groceries",
+        price: 499
+    },
+
+    {
+        name: "Refreshing Drinks Pack",
+        category: "Drinks",
+        price: 149
+    }
+
+];
+
+
+function searchProducts() {
+
+    const input =
+        document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    const results =
+        document.getElementById("searchResults");
+
+
+    if (!input) {
+
+        results.innerHTML = "";
+
+        return;
+
+    }
+
+
+    const matches =
+        searchableProducts.filter(product =>
+
+            product.name
+                .toLowerCase()
+                .includes(input)
+
+            ||
+
+            product.category
+                .toLowerCase()
+                .includes(input)
+
+        );
+
+
+    if (matches.length === 0) {
+
+        results.innerHTML = `
+
+            <p style="
+                text-align:center;
+                color:#69736d;
+                padding:25px;
+                font-size:12px;
+            ">
+                No fresh products found.
+            </p>
 
         `;
 
@@ -355,25 +462,31 @@ function updateCart() {
     }
 
 
-    cartItems.innerHTML = cart.map((item, index) => `
+    results.innerHTML = matches.map(product => `
 
-        <div class="cart-item">
+        <div class="search-result">
 
             <div>
 
-                <h4>${item.name}</h4>
+                <strong>
+                    ${product.name}
+                </strong>
 
-                <p>
-                    ₹${item.price} × ${item.quantity}
-                </p>
+                <small>
+                    ${product.category}
+                </small>
 
             </div>
 
             <button
-                class="remove-item"
-                onclick="removeFromCart(${index})"
+                onclick="
+                    addToCart(
+                        '${product.name}',
+                        ${product.price}
+                    )
+                "
             >
-                ×
+                Add ₹${product.price}
             </button>
 
         </div>
@@ -383,157 +496,9 @@ function updateCart() {
 }
 
 
-function removeFromCart(index) {
-
-    cart.splice(index, 1);
-
-    updateCart();
-
-    showToast("Product removed from cart.");
-
-}
-
-
-/* ============================================
-   OPEN / CLOSE CART
-============================================ */
-
-function openCart() {
-
-    document
-        .getElementById("cartSidebar")
-        .classList.add("show");
-
-    document
-        .getElementById("cartOverlay")
-        .classList.add("show");
-
-}
-
-
-function closeCart() {
-
-    document
-        .getElementById("cartSidebar")
-        .classList.remove("show");
-
-    document
-        .getElementById("cartOverlay")
-        .classList.remove("show");
-
-}
-
-
-/* ============================================
-   CHECKOUT
-============================================ */
-
-function checkout() {
-
-    if (cart.length === 0) {
-
-        showToast("Your cart is empty!");
-
-        return;
-
-    }
-
-
-    showToast("Checkout feature coming soon!");
-
-}
-
-
-/* ============================================
-   PRODUCT QUICK VIEW
-============================================ */
-
-let selectedProduct = null;
-
-
-function showProduct(name, price) {
-
-    selectedProduct = {
-        name: name,
-        price: price
-    };
-
-
-    document.getElementById("modalProductName")
-        .textContent = name;
-
-
-    document.getElementById("modalProductPrice")
-        .textContent = `₹${price}`;
-
-
-    document.getElementById("productModal")
-        .classList.add("show");
-
-}
-
-
-function closeProductModal() {
-
-    document
-        .getElementById("productModal")
-        .classList.remove("show");
-
-}
-
-
-function addModalProduct() {
-
-    if (!selectedProduct) return;
-
-
-    addToCart(
-        selectedProduct.name,
-        selectedProduct.price
-    );
-
-
-    closeProductModal();
-
-}
-
-
-/* ============================================
-   TOAST MESSAGE
-============================================ */
-
-let toastTimer;
-
-
-function showToast(message) {
-
-    const toast =
-        document.getElementById("toast");
-
-    const toastMessage =
-        document.getElementById("toastMessage");
-
-
-    toastMessage.textContent = message;
-
-    toast.classList.add("show");
-
-
-    clearTimeout(toastTimer);
-
-
-    toastTimer = setTimeout(() => {
-
-        toast.classList.remove("show");
-
-    }, 3000);
-
-}
-
-
-/* ============================================
+/* ==================================================
    NEWSLETTER
-============================================ */
+================================================== */
 
 function subscribe(event) {
 
@@ -541,27 +506,84 @@ function subscribe(event) {
 
 
     const email =
-        document.getElementById("email").value;
+        document
+            .getElementById("email")
+            .value;
 
 
-    if (email.trim() === "") {
+    if (!email) {
+        return;
+    }
+
+
+    showToast("You're subscribed to Fresh Mart! 🌿");
+
+
+    document
+        .getElementById("email")
+        .value = "";
+
+}
+
+
+/* ==================================================
+   CHECKOUT
+================================================== */
+
+function checkout() {
+
+    if (cart.length === 0) {
+
+        showToast("Your cart is empty");
 
         return;
 
     }
 
 
-    showToast("Thanks for subscribing! 🌿");
-
-
-    document.getElementById("email").value = "";
+    showToast(
+        "Checkout will be available soon!"
+    );
 
 }
 
 
-/* ============================================
-   CLOSE MODALS WITH ESCAPE
-============================================ */
+/* ==================================================
+   TOAST
+================================================== */
+
+let toastTimeout;
+
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+    const text =
+        document.getElementById("toastText");
+
+
+    text.textContent = message;
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimeout);
+
+
+    toastTimeout = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2800);
+
+}
+
+
+/* ==================================================
+   CLOSE MODALS WITH ESC
+================================================== */
 
 document.addEventListener("keydown", event => {
 
@@ -569,23 +591,45 @@ document.addEventListener("keydown", event => {
 
         closeSearch();
 
-        closeProductModal();
-
         closeCart();
+
+        closeQuickView();
 
     }
 
 });
 
 
-/* ============================================
-   CLOSE SEARCH WHEN CLICKING OUTSIDE
-============================================ */
+/* ==================================================
+   CLOSE QUICK VIEW OUTSIDE
+================================================== */
 
-document.getElementById("searchOverlay")
+document
+    .getElementById("quickModal")
     .addEventListener("click", event => {
 
-        if (event.target.id === "searchOverlay") {
+        if (
+            event.target.id === "quickModal"
+        ) {
+
+            closeQuickView();
+
+        }
+
+    });
+
+
+/* ==================================================
+   CLOSE SEARCH OUTSIDE
+================================================== */
+
+document
+    .getElementById("searchOverlay")
+    .addEventListener("click", event => {
+
+        if (
+            event.target.id === "searchOverlay"
+        ) {
 
             closeSearch();
 
@@ -594,59 +638,48 @@ document.getElementById("searchOverlay")
     });
 
 
-/* ============================================
-   CLOSE PRODUCT MODAL WHEN CLICKING OUTSIDE
-============================================ */
+/* ==================================================
+   NAVBAR ACTIVE STATE
+================================================== */
 
-document.getElementById("productModal")
-    .addEventListener("click", event => {
-
-        if (event.target.id === "productModal") {
-
-            closeProductModal();
-
-        }
-
-    });
-
-
-/* ============================================
-   NAVBAR ACTIVE LINK
-============================================ */
-
-const sections =
+const pageSections =
     document.querySelectorAll("section[id]");
 
-const navLinks =
-    document.querySelectorAll(".nav-link");
+const navigationLinks =
+    document.querySelectorAll("#mainNav a");
 
 
 window.addEventListener("scroll", () => {
 
-    let current = "";
+    let currentSection = "";
 
-    sections.forEach(section => {
 
-        const sectionTop =
-            section.offsetTop - 150;
+    pageSections.forEach(section => {
+
+        const top =
+            section.offsetTop - 180;
+
 
         if (
-            window.scrollY >= sectionTop
+            window.scrollY >= top
         ) {
 
-            current = section.getAttribute("id");
+            currentSection =
+                section.getAttribute("id");
 
         }
 
     });
 
 
-    navLinks.forEach(link => {
+    navigationLinks.forEach(link => {
 
         link.classList.remove("active");
 
+
         if (
-            link.getAttribute("href") === `#${current}`
+            link.getAttribute("href") ===
+            `#${currentSection}`
         ) {
 
             link.classList.add("active");
@@ -658,8 +691,8 @@ window.addEventListener("scroll", () => {
 });
 
 
-/* ============================================
+/* ==================================================
    INITIALIZE
-============================================ */
+================================================== */
 
 updateCart();
