@@ -1,997 +1,2493 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* ==================================================
+   FRESH MART
+   MODERN GROCERY E-COMMERCE DESIGN
+================================================== */
 
-    <title>Fresh Mart | Groceries Made Fresh</title>
+:root {
 
-    <meta name="description"
-          content="Fresh Mart - Fresh fruits, vegetables, groceries and beverages delivered to your doorstep.">
+    --green: #174f32;
+    --green-2: #236c43;
+    --green-3: #dcebdc;
 
-    <link rel="stylesheet" href="style.css">
+    --lime: #b9d86b;
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    --cream: #f7f5ed;
+    --cream-2: #efeee5;
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
-          rel="stylesheet">
-</head>
+    --white: #ffffff;
 
-<body>
+    --black: #17231c;
+    --gray: #69736d;
+    --light-gray: #a2aaa5;
 
-<!-- ================= HEADER ================= -->
+    --border: #dfe4dd;
 
-<header class="header">
+    --shadow: 0 20px 60px rgba(20, 55, 35, 0.09);
 
-    <div class="nav">
+    --radius: 22px;
+}
 
-        <a href="#home" class="brand">
-            <div class="brand-mark">
-                FM
-            </div>
 
-            <div>
-                <strong>Fresh</strong> Mart
-                <small>GROCERIES & MORE</small>
-            </div>
-        </a>
+/* ==================================================
+   RESET
+================================================== */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        <nav id="mainNav">
+html {
+    scroll-behavior: smooth;
+}
 
-            <a href="#home" class="active">Home</a>
-            <a href="#categories">Categories</a>
-            <a href="#products">Shop</a>
-            <a href="#offers">Offers</a>
-            <a href="#about">About</a>
+body {
+    font-family: "DM Sans", sans-serif;
 
-        </nav>
+    background: var(--cream);
 
+    color: var(--black);
 
-        <div class="nav-right">
+    line-height: 1.6;
 
-            <button class="icon-button" onclick="openSearch()">
-                <span>⌕</span>
-            </button>
+    overflow-x: hidden;
+}
 
-            <button class="cart-button" onclick="openCart()">
+button,
+input {
+    font-family: inherit;
+}
 
-                <span>🛒</span>
+button {
+    cursor: pointer;
+}
 
-                <b id="cartCount">0</b>
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-            </button>
+img {
+    width: 100%;
+    display: block;
+}
 
-            <button class="hamburger" onclick="toggleMenu()">
-                ☰
-            </button>
 
-        </div>
+/* ==================================================
+   HEADER
+================================================== */
 
-    </div>
+.header {
 
-</header>
+    height: 82px;
 
+    position: fixed;
 
-<!-- ================= HERO ================= -->
+    left: 0;
+    top: 0;
 
-<main>
+    width: 100%;
 
-<section class="hero" id="home">
+    z-index: 1000;
 
-    <div class="hero-left">
+    background: rgba(247,245,237,.94);
 
-        <div class="hero-badge">
-            <span>●</span>
-            FRESHNESS YOU CAN TRUST
-        </div>
+    backdrop-filter: blur(18px);
 
-        <h1>
-            Good food
-            <em>starts fresh.</em>
-        </h1>
+    border-bottom: 1px solid rgba(23,79,50,.08);
+}
 
-        <p class="hero-description">
-            Discover farm-fresh fruits, crisp vegetables,
-            everyday groceries and refreshing drinks —
-            carefully selected for your family.
-        </p>
 
-        <div class="hero-buttons">
+.nav {
 
-            <a href="#products" class="primary-button">
-                Shop Fresh <span>→</span>
-            </a>
+    width: min(1250px, 92%);
 
-            <a href="#categories" class="text-button">
-                Explore categories
-            </a>
+    height: 100%;
 
-        </div>
+    margin: auto;
 
+    display: flex;
 
-        <div class="hero-trust">
+    align-items: center;
 
-            <div class="avatars">
-                <span>👩🏻</span>
-                <span>👨🏽</span>
-                <span>👩🏾</span>
-            </div>
+    justify-content: space-between;
+}
 
-            <div>
-                <strong>2,000+ happy customers</strong>
-                <small>Freshness delivered every day</small>
-            </div>
 
-        </div>
+/* BRAND */
 
-    </div>
+.brand {
 
+    display: flex;
 
-    <div class="hero-right">
+    align-items: center;
 
-        <div class="hero-image-main">
+    gap: 11px;
 
-            <img src="images/fruits.JPG"
-                 alt="Fresh fruits at Fresh Mart">
+    color: var(--green);
 
-        </div>
+    font-size: 20px;
 
+    font-weight: 500;
+}
 
-        <div class="floating-card fresh-card">
+.brand strong {
+    font-weight: 800;
+}
 
-            <div class="floating-icon">🌿</div>
+.brand small {
 
-            <div>
-                <strong>Farm Fresh</strong>
-                <small>Picked with care</small>
-            </div>
+    display: block;
 
-        </div>
+    font-size: 7px;
 
+    letter-spacing: 2px;
 
-        <div class="floating-card delivery-card">
+    color: var(--gray);
+}
 
-            <div class="floating-icon">🚚</div>
 
-            <div>
-                <strong>Fast Delivery</strong>
-                <small>At your doorstep</small>
-            </div>
+.brand-mark {
 
-        </div>
+    width: 43px;
+    height: 43px;
 
+    display: grid;
 
-        <div class="organic-stamp">
+    place-items: center;
 
-            <span>100%</span>
-            <small>FRESH</small>
+    border-radius: 13px;
 
-        </div>
+    background: var(--green);
 
-    </div>
+    color: white;
 
-</section>
+    font-weight: 800;
 
+    font-size: 12px;
 
-<!-- ================= QUICK CATEGORIES ================= -->
+    letter-spacing: -1px;
+}
 
-<section class="category-section" id="categories">
 
-    <div class="section-top">
+/* NAVIGATION */
 
-        <div>
-            <span class="eyebrow">SHOP BY CATEGORY</span>
+#mainNav {
 
-            <h2>Fresh picks for<br>
-                <span>every table.</span>
-            </h2>
-        </div>
+    display: flex;
 
-        <p>
-            From farm-fresh produce to daily essentials,
-            everything you need is just a click away.
-        </p>
+    align-items: center;
 
-    </div>
+    gap: 34px;
+}
 
+#mainNav a {
 
-    <div class="category-grid">
+    position: relative;
 
+    color: #59645e;
 
-        <button class="category-tile fruits-tile"
-                onclick="filterProducts('fruits')">
+    font-size: 13px;
 
-            <div class="category-photo">
+    font-weight: 600;
 
-                <img src="images/fruits.JPG"
-                     alt="Fresh fruits">
+    transition: .25s;
+}
 
-            </div>
+#mainNav a:hover,
+#mainNav a.active {
 
-            <div class="category-info">
+    color: var(--green);
+}
 
-                <span>01</span>
+#mainNav a.active::after {
 
-                <h3>Fresh Fruits</h3>
+    content: "";
 
-                <p>Juicy • Sweet • Natural</p>
+    position: absolute;
 
-                <b>Explore →</b>
+    width: 5px;
+    height: 5px;
 
-            </div>
+    border-radius: 50%;
 
-        </button>
+    background: var(--lime);
 
+    left: 50%;
 
-        <button class="category-tile vegetables-tile"
-                onclick="filterProducts('vegetables')">
+    bottom: -11px;
 
-            <div class="category-photo">
+    transform: translateX(-50%);
+}
 
-                <img src="images/vegetables.JPG"
-                     alt="Fresh vegetables">
 
-            </div>
+/* RIGHT */
 
-            <div class="category-info">
+.nav-right {
 
-                <span>02</span>
+    display: flex;
 
-                <h3>Vegetables</h3>
+    align-items: center;
 
-                <p>Crisp • Healthy • Farm Fresh</p>
+    gap: 10px;
+}
 
-                <b>Explore →</b>
+.icon-button,
+.cart-button {
 
-            </div>
+    width: 43px;
+    height: 43px;
 
-        </button>
+    border: 1px solid var(--border);
 
+    background: white;
 
-        <button class="category-tile groceries-tile"
-                onclick="filterProducts('groceries')">
+    border-radius: 13px;
 
-            <div class="category-photo">
+    display: grid;
 
-                <img src="images/groceries.JPG"
-                     alt="Daily groceries">
+    place-items: center;
 
-            </div>
+    transition: .25s;
 
-            <div class="category-info">
+    position: relative;
+}
 
-                <span>03</span>
+.icon-button:hover,
+.cart-button:hover {
 
-                <h3>Groceries</h3>
+    background: var(--green);
 
-                <p>Everyday • Essential • Easy</p>
+    color: white;
+}
 
-                <b>Explore →</b>
+.icon-button span {
+    font-size: 25px;
+}
 
-            </div>
+.cart-button span {
+    font-size: 17px;
+}
 
-        </button>
+.cart-button b {
 
+    position: absolute;
 
-        <button class="category-tile drinks-tile"
-                onclick="filterProducts('drinks')">
+    top: -5px;
 
-            <div class="category-photo">
+    right: -5px;
 
-                <img src="images/drinks.JPG"
-                     alt="Refreshing drinks">
+    width: 19px;
+    height: 19px;
 
-            </div>
+    display: grid;
 
-            <div class="category-info">
+    place-items: center;
 
-                <span>04</span>
+    border-radius: 50%;
 
-                <h3>Drinks</h3>
+    background: var(--lime);
 
-                <p>Cool • Refreshing • Delicious</p>
+    color: var(--green);
 
-                <b>Explore →</b>
+    font-size: 9px;
+}
 
-            </div>
+.hamburger {
+    display: none;
 
-        </button>
+    width: 43px;
+    height: 43px;
 
-    </div>
+    border: 0;
 
-</section>
+    background: var(--green);
 
+    color: white;
 
-<!-- ================= PRODUCT SECTION ================= -->
+    border-radius: 12px;
 
-<section class="shop-section" id="products">
+    font-size: 18px;
+}
 
-    <div class="shop-header">
 
-        <div>
+/* ==================================================
+   HERO
+================================================== */
 
-            <span class="eyebrow">TODAY'S SELECTION</span>
+.hero {
 
-            <h2>Fresh from the market</h2>
+    min-height: 760px;
 
-        </div>
+    padding: 155px max(4%, calc((100vw - 1250px) / 2)) 90px;
 
+    display: grid;
 
-        <div class="filters">
+    grid-template-columns: 1fr 1fr;
 
-            <button class="filter active"
-                    onclick="filterProducts('all')">
-                All
-            </button>
+    align-items: center;
 
-            <button class="filter"
-                    onclick="filterProducts('fruits')">
-                Fruits
-            </button>
+    gap: 80px;
 
-            <button class="filter"
-                    onclick="filterProducts('vegetables')">
-                Vegetables
-            </button>
+    background:
 
-            <button class="filter"
-                    onclick="filterProducts('groceries')">
-                Groceries
-            </button>
+        radial-gradient(
+            circle at 78% 35%,
+            #dfeeda 0,
+            transparent 30%
+        ),
 
-            <button class="filter"
-                    onclick="filterProducts('drinks')">
-                Drinks
-            </button>
+        var(--cream);
 
-        </div>
+    overflow: hidden;
+}
 
-    </div>
 
+/* HERO LEFT */
 
-    <div class="product-grid">
+.hero-left {
+    max-width: 610px;
+}
 
+.hero-badge {
 
-        <!-- PRODUCT 1 -->
+    display: inline-flex;
 
-        <article class="product"
-                 data-category="fruits">
+    align-items: center;
 
-            <div class="product-photo">
+    gap: 9px;
 
-                <span class="offer-label">BESTSELLER</span>
+    padding: 8px 13px;
 
-                <img src="images/fruits.JPG"
-                     alt="Fresh fruit basket">
+    background: #e7f0e4;
 
-                <button class="view-button"
-                        onclick="quickView('Fresh Fruit Basket',299)">
-                    Quick view
-                </button>
+    color: var(--green);
 
-            </div>
+    border-radius: 30px;
 
-            <div class="product-details">
+    font-size: 9px;
 
-                <small>FRESH FRUITS</small>
+    font-weight: 800;
 
-                <h3>Fresh Fruit Basket</h3>
+    letter-spacing: 1.5px;
 
-                <div class="rating">
-                    ★★★★★
-                    <span>4.9 (48)</span>
-                </div>
+    margin-bottom: 22px;
+}
 
-                <div class="product-price">
+.hero-badge span {
 
-                    <div>
-                        <strong>₹299</strong>
-                        <del>₹350</del>
-                    </div>
+    color: #73a94c;
 
-                    <button onclick="addToCart('Fresh Fruit Basket',299)">
-                        +
-                    </button>
+    font-size: 11px;
+}
 
-                </div>
 
-            </div>
+.hero h1 {
 
-        </article>
+    font-family: "Playfair Display", serif;
 
+    font-size: clamp(60px, 6.5vw, 92px);
 
-        <!-- PRODUCT 2 -->
+    line-height: .98;
 
-        <article class="product"
-                 data-category="vegetables">
+    letter-spacing: -4px;
 
-            <div class="product-photo">
+    margin-bottom: 28px;
+}
 
-                <span class="offer-label">FRESH TODAY</span>
+.hero h1 em {
 
-                <img src="images/vegetables.JPG"
-                     alt="Fresh vegetables">
+    display: block;
 
-                <button class="view-button"
-                        onclick="quickView('Farm Fresh Vegetables',199)">
-                    Quick view
-                </button>
+    color: var(--green);
 
-            </div>
+    font-style: normal;
+}
 
-            <div class="product-details">
 
-                <small>VEGETABLES</small>
+.hero-description {
 
-                <h3>Farm Fresh Vegetables</h3>
+    max-width: 540px;
 
-                <div class="rating">
-                    ★★★★★
-                    <span>4.8 (36)</span>
-                </div>
+    color: var(--gray);
 
-                <div class="product-price">
+    font-size: 16px;
 
-                    <div>
-                        <strong>₹199</strong>
-                        <del>₹230</del>
-                    </div>
+    line-height: 1.8;
 
-                    <button onclick="addToCart('Farm Fresh Vegetables',199)">
-                        +
-                    </button>
+    margin-bottom: 34px;
+}
 
-                </div>
 
-            </div>
+.hero-buttons {
 
-        </article>
+    display: flex;
 
+    align-items: center;
 
-        <!-- PRODUCT 3 -->
+    gap: 25px;
 
-        <article class="product"
-                 data-category="groceries">
+    margin-bottom: 40px;
+}
 
-            <div class="product-photo">
 
-                <span class="offer-label">SAVE 10%</span>
+.primary-button {
 
-                <img src="images/groceries.JPG"
-                     alt="Grocery essentials">
+    display: inline-flex;
 
-                <button class="view-button"
-                        onclick="quickView('Daily Grocery Pack',499)">
-                    Quick view
-                </button>
+    align-items: center;
 
-            </div>
+    gap: 25px;
 
-            <div class="product-details">
+    padding: 15px 18px 15px 23px;
 
-                <small>GROCERIES</small>
+    background: var(--green);
 
-                <h3>Daily Grocery Pack</h3>
+    color: white;
 
-                <div class="rating">
-                    ★★★★★
-                    <span>4.7 (52)</span>
-                </div>
+    border-radius: 10px;
 
-                <div class="product-price">
+    font-size: 13px;
 
-                    <div>
-                        <strong>₹499</strong>
-                        <del>₹560</del>
-                    </div>
+    font-weight: 700;
 
-                    <button onclick="addToCart('Daily Grocery Pack',499)">
-                        +
-                    </button>
+    box-shadow: 0 13px 30px rgba(23,79,50,.2);
 
-                </div>
+    transition: .3s;
+}
 
-            </div>
+.primary-button span {
 
-        </article>
+    width: 29px;
+    height: 29px;
 
+    display: grid;
 
-        <!-- PRODUCT 4 -->
+    place-items: center;
 
-        <article class="product"
-                 data-category="drinks">
+    border-radius: 7px;
 
-            <div class="product-photo">
+    background: rgba(255,255,255,.15);
 
-                <span class="offer-label">POPULAR</span>
+    font-size: 16px;
+}
 
-                <img src="images/drinks.JPG"
-                     alt="Refreshing drinks">
+.primary-button:hover {
 
-                <button class="view-button"
-                        onclick="quickView('Refreshing Drinks Pack',149)">
-                    Quick view
-                </button>
+    transform: translateY(-3px);
 
-            </div>
+    background: #103d26;
+}
 
-            <div class="product-details">
 
-                <small>BEVERAGES</small>
+.text-button {
 
-                <h3>Refreshing Drinks Pack</h3>
+    color: var(--green);
 
-                <div class="rating">
-                    ★★★★★
-                    <span>4.8 (31)</span>
-                </div>
+    font-size: 13px;
 
-                <div class="product-price">
+    font-weight: 700;
 
-                    <div>
-                        <strong>₹149</strong>
-                        <del>₹180</del>
-                    </div>
+    border-bottom: 1px solid var(--green);
 
-                    <button onclick="addToCart('Refreshing Drinks Pack',149)">
-                        +
-                    </button>
+    padding-bottom: 3px;
+}
 
-                </div>
 
-            </div>
+/* TRUST */
 
-        </article>
+.hero-trust {
 
-    </div>
+    display: flex;
 
-</section>
+    align-items: center;
 
+    gap: 13px;
+}
 
-<!-- ================= OFFER BANNER ================= -->
+.avatars {
 
-<section class="offer-section" id="offers">
+    display: flex;
+}
 
-    <div class="offer-content">
+.avatars span {
 
-        <span class="eyebrow light">
-            THIS WEEK ONLY
-        </span>
+    width: 34px;
+    height: 34px;
 
-        <h2>
-            Your pantry<br>
-            deserves <em>better.</em>
-        </h2>
+    display: grid;
 
-        <p>
-            Get up to 20% off on selected fresh products.
-            Freshness shouldn't cost more.
-        </p>
+    place-items: center;
 
-        <a href="#products" class="offer-button">
-            Grab the offer →
-        </a>
+    background: white;
 
-    </div>
+    border-radius: 50%;
 
+    border: 2px solid var(--cream);
 
-    <div class="offer-image">
+    margin-left: -7px;
 
-        <img src="images/vegetables.JPG"
-             alt="Fresh vegetables offer">
+    font-size: 17px;
+}
 
-        <div class="offer-circle">
+.avatars span:first-child {
+    margin-left: 0;
+}
 
-            <strong>20%</strong>
-            <span>OFF</span>
+.hero-trust strong {
 
-        </div>
+    display: block;
 
-    </div>
+    font-size: 11px;
+}
 
-</section>
+.hero-trust small {
 
+    color: var(--gray);
 
-<!-- ================= WHY FRESH MART ================= -->
+    font-size: 9px;
+}
 
-<section class="why-section" id="about">
 
-    <div class="why-image">
+/* HERO RIGHT */
 
-        <img src="images/groceries.JPG"
-             alt="Fresh Mart groceries">
+.hero-right {
 
-    </div>
+    position: relative;
 
+    height: 550px;
 
-    <div class="why-content">
+    display: flex;
 
-        <span class="eyebrow">
-            WHY FRESH MART?
-        </span>
+    align-items: center;
 
-        <h2>
-            More than groceries.
-            <span>A fresher way of living.</span>
-        </h2>
+    justify-content: center;
+}
 
-        <p>
-            We believe shopping for groceries should be simple,
-            convenient and enjoyable. That's why we bring quality
-            products directly to your doorstep.
-        </p>
+.hero-image-main {
 
+    width: 440px;
 
-        <div class="benefit-grid">
+    height: 500px;
 
-            <div class="benefit">
+    overflow: hidden;
 
-                <div>🌱</div>
+    border-radius: 220px 220px 28px 28px;
 
-                <section>
-                    <strong>Farm Fresh</strong>
-                    <p>Fresh products from trusted sources.</p>
-                </section>
+    transform: rotate(3deg);
 
-            </div>
+    box-shadow: 25px 30px 70px rgba(30,70,45,.16);
 
+    position: relative;
 
-            <div class="benefit">
+    z-index: 2;
+}
 
-                <div>✓</div>
+.hero-image-main::after {
 
-                <section>
-                    <strong>Quality First</strong>
-                    <p>Every product carefully selected.</p>
-                </section>
+    content: "";
 
-            </div>
+    position: absolute;
 
+    inset: 0;
 
-            <div class="benefit">
+    background: linear-gradient(
+        to top,
+        rgba(12,48,29,.25),
+        transparent 45%
+    );
+}
 
-                <div>⚡</div>
+.hero-image-main img {
 
-                <section>
-                    <strong>Quick Delivery</strong>
-                    <p>Fast and reliable doorstep delivery.</p>
-                </section>
+    width: 100%;
+    height: 100%;
 
-            </div>
+    object-fit: cover;
+}
 
 
-            <div class="benefit">
+/* FLOATING CARDS */
 
-                <div>♡</div>
+.floating-card {
 
-                <section>
-                    <strong>Made With Care</strong>
-                    <p>Your family's needs come first.</p>
-                </section>
+    position: absolute;
 
-            </div>
+    z-index: 5;
 
-        </div>
+    display: flex;
 
-    </div>
+    align-items: center;
 
-</section>
+    gap: 10px;
 
+    padding: 12px 16px;
 
-<!-- ================= NUMBERS ================= -->
+    background: rgba(255,255,255,.94);
 
-<section class="numbers">
+    backdrop-filter: blur(10px);
 
-    <div>
+    border-radius: 13px;
 
-        <strong>500+</strong>
+    box-shadow: var(--shadow);
+}
 
-        <span>Fresh products</span>
+.floating-icon {
 
-    </div>
+    width: 37px;
+    height: 37px;
 
+    display: grid;
 
-    <div>
+    place-items: center;
 
-        <strong>2K+</strong>
+    border-radius: 10px;
 
-        <span>Happy customers</span>
+    background: var(--green-3);
+}
 
-    </div>
+.floating-card strong,
+.floating-card small {
 
+    display: block;
+}
 
-    <div>
+.floating-card strong {
+    font-size: 11px;
+}
 
-        <strong>25+</strong>
+.floating-card small {
 
-        <span>Trusted suppliers</span>
+    color: var(--gray);
 
-    </div>
+    font-size: 9px;
+}
 
+.fresh-card {
 
-    <div>
+    left: 0;
 
-        <strong>24/7</strong>
+    top: 120px;
+}
 
-        <span>Customer support</span>
+.delivery-card {
 
-    </div>
+    right: -5px;
 
-</section>
+    bottom: 100px;
+}
 
 
-<!-- ================= NEWSLETTER ================= -->
+/* STAMP */
 
-<section class="newsletter">
+.organic-stamp {
 
-    <div>
+    position: absolute;
 
-        <span class="eyebrow">STAY IN THE LOOP</span>
+    right: 25px;
 
-        <h2>
-            Fresh deals.<br>
-            Straight to your inbox.
-        </h2>
+    top: 40px;
 
-    </div>
+    width: 100px;
+    height: 100px;
 
+    border-radius: 50%;
 
-    <form onsubmit="subscribe(event)">
+    background: var(--lime);
 
-        <input
-            type="email"
-            id="email"
-            placeholder="Your email address"
-            required
-        >
+    color: var(--green);
 
-        <button>
-            Subscribe →
-        </button>
+    display: flex;
 
-    </form>
+    flex-direction: column;
 
-</section>
+    align-items: center;
 
+    justify-content: center;
 
-</main>
+    transform: rotate(12deg);
 
+    z-index: 5;
 
-<!-- ================= FOOTER ================= -->
+    border: 2px dashed var(--green);
+}
 
-<footer>
+.organic-stamp span {
 
-    <div class="footer-main">
+    font-family: "Playfair Display", serif;
 
-        <div class="footer-brand">
+    font-size: 24px;
 
-            <a href="#home" class="brand footer-logo">
+    font-weight: 800;
 
-                <div class="brand-mark">
-                    FM
-                </div>
+    line-height: 1;
+}
 
-                <div>
-                    <strong>Fresh</strong> Mart
-                    <small>GROCERIES & MORE</small>
-                </div>
+.organic-stamp small {
 
-            </a>
+    font-size: 8px;
 
-            <p>
-                Fresh groceries, better living.
-                Your trusted neighborhood grocery store online.
-            </p>
+    letter-spacing: 2px;
 
-        </div>
+    font-weight: 800;
+}
 
 
-        <div class="footer-column">
+/* ==================================================
+   CATEGORY SECTION
+================================================== */
 
-            <h4>Explore</h4>
+.category-section {
 
-            <a href="#home">Home</a>
-            <a href="#categories">Categories</a>
-            <a href="#products">Shop</a>
-            <a href="#offers">Offers</a>
+    padding: 110px max(4%, calc((100vw - 1250px) / 2));
 
-        </div>
+    background: white;
+}
 
 
-        <div class="footer-column">
+.section-top {
 
-            <h4>Categories</h4>
+    display: flex;
 
-            <a href="#products">Fruits</a>
-            <a href="#products">Vegetables</a>
-            <a href="#products">Groceries</a>
-            <a href="#products">Beverages</a>
+    justify-content: space-between;
 
-        </div>
+    align-items: end;
 
+    margin-bottom: 45px;
+}
 
-        <div class="footer-column">
+.eyebrow {
 
-            <h4>Contact</h4>
+    display: block;
 
-            <p>📍 Visakhapatnam, AP</p>
-            <p>📞 +91 98765 43210</p>
-            <p>✉ hello@freshmart.com</p>
+    color: var(--green);
 
-        </div>
+    font-size: 9px;
 
-    </div>
+    font-weight: 800;
 
+    letter-spacing: 2px;
 
-    <div class="footer-bottom">
+    margin-bottom: 10px;
+}
 
-        <span>
-            © 2026 Fresh Mart. All rights reserved.
-        </span>
+.section-top h2 {
 
-        <span>
-            Made with ♡ for fresh living.
-        </span>
+    font-family: "Playfair Display", serif;
 
-    </div>
+    font-size: 50px;
 
-</footer>
+    line-height: 1.05;
 
+    letter-spacing: -1.5px;
+}
 
-<!-- ================= SEARCH ================= -->
+.section-top h2 span {
+    color: var(--green);
+}
 
-<div class="search-overlay" id="searchOverlay">
+.section-top > p {
 
-    <div class="search-box">
+    max-width: 380px;
 
-        <button class="close-search"
-                onclick="closeSearch()">
-            ×
-        </button>
+    color: var(--gray);
 
-        <span class="eyebrow">
-            SEARCH FRESH MART
-        </span>
+    font-size: 13px;
 
-        <h2>What are you looking for?</h2>
+    line-height: 1.8;
+}
 
-        <div class="search-input">
 
-            <span>⌕</span>
+/* CATEGORY GRID */
 
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search fruits, vegetables..."
-                oninput="searchProducts()"
-            >
+.category-grid {
 
-        </div>
+    display: grid;
 
-        <div id="searchResults"></div>
+    grid-template-columns: repeat(4,1fr);
 
-    </div>
+    gap: 16px;
+}
 
-</div>
+.category-tile {
 
+    padding: 0;
 
-<!-- ================= CART ================= -->
+    border: 0;
 
-<div class="cart-backdrop"
-     id="cartBackdrop"
-     onclick="closeCart()">
-</div>
+    overflow: hidden;
 
+    background: var(--cream);
 
-<aside class="cart-drawer" id="cartDrawer">
+    border-radius: 20px;
 
-    <div class="cart-top">
+    text-align: left;
 
-        <div>
-            <span class="eyebrow">YOUR BAG</span>
-            <h2>Shopping Cart</h2>
-        </div>
+    transition: .4s;
+}
 
-        <button onclick="closeCart()">×</button>
+.category-tile:hover {
 
-    </div>
+    transform: translateY(-8px);
 
+    box-shadow: var(--shadow);
+}
 
-    <div class="cart-products" id="cartProducts">
+.category-photo {
 
-        <div class="empty-cart">
+    height: 245px;
 
-            <div>🛒</div>
+    overflow: hidden;
+}
 
-            <h3>Your cart is empty</h3>
+.category-photo img {
 
-            <p>
-                Add something fresh to get started.
-            </p>
+    width: 100%;
+    height: 100%;
 
-        </div>
+    object-fit: cover;
 
-    </div>
+    transition: .5s;
+}
 
+.category-tile:hover .category-photo img {
 
-    <div class="cart-bottom">
+    transform: scale(1.08);
+}
 
-        <div class="total-row">
 
-            <span>Total</span>
+.category-info {
 
-            <strong id="cartTotal">
-                ₹0
-            </strong>
+    padding: 20px 20px 24px;
+}
 
-        </div>
+.category-info > span {
 
-        <button onclick="checkout()">
-            Continue to Checkout →
-        </button>
+    color: #a1aaa4;
 
-    </div>
+    font-size: 9px;
 
-</aside>
+    font-weight: 800;
 
+    letter-spacing: 1px;
+}
 
-<!-- ================= QUICK VIEW MODAL ================= -->
+.category-info h3 {
 
-<div class="modal" id="quickModal">
+    font-family: "Playfair Display", serif;
 
-    <div class="modal-box">
+    font-size: 22px;
 
-        <button class="modal-close"
-                onclick="closeQuickView()">
-            ×
-        </button>
+    margin: 4px 0;
+}
 
-        <div class="modal-symbol">
-            🛒
-        </div>
+.category-info p {
 
-        <span class="eyebrow">
-            FRESH MART
-        </span>
+    color: var(--gray);
 
-        <h2 id="modalName">
-            Product
-        </h2>
+    font-size: 10px;
 
-        <p>
-            Carefully selected for quality and freshness.
-            Add this product to your Fresh Mart cart.
-        </p>
+    margin-bottom: 14px;
+}
 
-        <strong id="modalPrice">
-            ₹0
-        </strong>
+.category-info b {
 
-        <button onclick="addModalProduct()">
-            Add to cart
-        </button>
+    color: var(--green);
 
-    </div>
+    font-size: 10px;
+}
 
-</div>
 
+/* ==================================================
+   SHOP
+================================================== */
 
-<!-- ================= TOAST ================= -->
+.shop-section {
 
-<div class="toast" id="toast">
+    padding: 110px max(4%, calc((100vw - 1250px) / 2));
 
-    <span>✓</span>
+    background: var(--cream);
+}
 
-    <p id="toastText">
-        Added to cart
-    </p>
+.shop-header {
 
-</div>
+    display: flex;
 
+    align-items: end;
 
-<script src="script.js"></script>
+    justify-content: space-between;
 
-</body>
-</html>
+    margin-bottom: 45px;
+}
+
+.shop-header h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 48px;
+
+    line-height: 1;
+}
+
+
+/* FILTERS */
+
+.filters {
+
+    display: flex;
+
+    gap: 7px;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+}
+
+.filter {
+
+    border: 1px solid var(--border);
+
+    background: white;
+
+    color: var(--gray);
+
+    padding: 9px 15px;
+
+    border-radius: 30px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    transition: .25s;
+}
+
+.filter:hover,
+.filter.active {
+
+    background: var(--green);
+
+    border-color: var(--green);
+
+    color: white;
+}
+
+
+/* PRODUCTS */
+
+.product-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 18px;
+}
+
+.product {
+
+    background: white;
+
+    border-radius: 19px;
+
+    overflow: hidden;
+
+    border: 1px solid #e8ebe5;
+
+    transition: .3s;
+}
+
+.product:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: var(--shadow);
+}
+
+
+.product-photo {
+
+    height: 290px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #e7e7df;
+}
+
+.product-photo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .5s;
+}
+
+.product:hover .product-photo img {
+    transform: scale(1.07);
+}
+
+
+.offer-label {
+
+    position: absolute;
+
+    top: 13px;
+    left: 13px;
+
+    z-index: 3;
+
+    padding: 6px 9px;
+
+    border-radius: 5px;
+
+    background: var(--green);
+
+    color: white;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: .8px;
+}
+
+
+.view-button {
+
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+
+    bottom: -45px;
+
+    border: 0;
+
+    padding: 11px;
+
+    background: white;
+
+    color: var(--green);
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    transition: .3s;
+}
+
+.product:hover .view-button {
+    bottom: 12px;
+}
+
+
+.product-details {
+
+    padding: 18px;
+}
+
+.product-details > small {
+
+    color: var(--green);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.product-details h3 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 19px;
+
+    margin: 3px 0 5px;
+}
+
+.rating {
+
+    color: #e8a92e;
+
+    font-size: 10px;
+}
+
+.rating span {
+
+    color: #929a95;
+
+    margin-left: 5px;
+
+    font-size: 9px;
+}
+
+
+.product-price {
+
+    margin-top: 16px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.product-price strong {
+
+    color: var(--green);
+
+    font-size: 20px;
+}
+
+.product-price del {
+
+    color: #a7aea9;
+
+    font-size: 10px;
+
+    margin-left: 5px;
+}
+
+
+.product-price button {
+
+    width: 37px;
+    height: 37px;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    background: var(--green);
+
+    color: white;
+
+    font-size: 22px;
+
+    transition: .25s;
+}
+
+.product-price button:hover {
+
+    background: var(--lime);
+
+    color: var(--green);
+
+    transform: rotate(90deg);
+}
+
+
+/* ==================================================
+   OFFER SECTION
+================================================== */
+
+.offer-section {
+
+    margin: 0 max(4%, calc((100vw - 1250px) / 2));
+
+    min-height: 430px;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: var(--green);
+
+    color: white;
+
+    position: relative;
+}
+
+.offer-content {
+
+    padding: 65px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.eyebrow.light {
+    color: var(--lime);
+}
+
+.offer-content h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 52px;
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+}
+
+.offer-content h2 em {
+
+    color: var(--lime);
+
+    font-style: normal;
+}
+
+.offer-content p {
+
+    max-width: 400px;
+
+    color: rgba(255,255,255,.72);
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+}
+
+.offer-button {
+
+    width: fit-content;
+
+    background: white;
+
+    color: var(--green);
+
+    padding: 13px 19px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+.offer-image {
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.offer-image img {
+
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: .8;
+}
+
+.offer-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        var(--green),
+        transparent
+    );
+}
+
+
+.offer-circle {
+
+    position: absolute;
+
+    right: 50px;
+    top: 50%;
+
+    transform: translateY(-50%) rotate(10deg);
+
+    width: 140px;
+    height: 140px;
+
+    border-radius: 50%;
+
+    background: var(--lime);
+
+    color: var(--green);
+
+    z-index: 3;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 2px dashed var(--green);
+}
+
+.offer-circle strong {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 43px;
+
+    line-height: 1;
+}
+
+.offer-circle span {
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==================================================
+   WHY SECTION
+================================================== */
+
+.why-section {
+
+    padding: 120px max(4%, calc((100vw - 1250px) / 2));
+
+    display: grid;
+
+    grid-template-columns: .9fr 1.1fr;
+
+    gap: 90px;
+
+    align-items: center;
+
+    background: white;
+}
+
+.why-image {
+
+    height: 550px;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+}
+
+.why-image img {
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.why-content h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 53px;
+
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+}
+
+.why-content h2 span {
+
+    color: var(--green);
+}
+
+.why-content > p {
+
+    color: var(--gray);
+
+    font-size: 14px;
+
+    max-width: 550px;
+
+    margin-bottom: 35px;
+}
+
+
+.benefit-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.benefit {
+
+    display: flex;
+
+    gap: 12px;
+}
+
+.benefit > div {
+
+    flex-shrink: 0;
+
+    width: 39px;
+    height: 39px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: var(--green-3);
+
+    color: var(--green);
+
+    border-radius: 10px;
+
+    font-size: 16px;
+}
+
+.benefit strong {
+
+    font-size: 12px;
+}
+
+.benefit p {
+
+    color: var(--gray);
+
+    font-size: 9px;
+
+    margin-top: 2px;
+}
+
+
+/* ==================================================
+   NUMBERS
+================================================== */
+
+.numbers {
+
+    padding: 65px max(4%, calc((100vw - 1250px) / 2));
+
+    background: var(--green);
+
+    color: white;
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    text-align: center;
+}
+
+.numbers div {
+
+    border-right: 1px solid rgba(255,255,255,.15);
+}
+
+.numbers div:last-child {
+    border: 0;
+}
+
+.numbers strong {
+
+    display: block;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 42px;
+}
+
+.numbers span {
+
+    color: rgba(255,255,255,.65);
+
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   NEWSLETTER
+================================================== */
+
+.newsletter {
+
+    padding: 90px max(4%, calc((100vw - 1100px) / 2));
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    background: #e4eee1;
+}
+
+.newsletter h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 42px;
+
+    line-height: 1.05;
+}
+
+.newsletter form {
+
+    display: flex;
+
+    width: 480px;
+
+    padding: 5px;
+
+    background: white;
+
+    border-radius: 10px;
+}
+
+.newsletter input {
+
+    flex: 1;
+
+    border: 0;
+
+    outline: 0;
+
+    padding: 13px;
+
+    font-size: 11px;
+
+    background: transparent;
+}
+
+.newsletter button {
+
+    border: 0;
+
+    background: var(--green);
+
+    color: white;
+
+    padding: 0 20px;
+
+    border-radius: 7px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer {
+
+    background: #0e2117;
+
+    color: white;
+
+    padding: 65px max(4%, calc((100vw - 1250px) / 2)) 0;
+}
+
+.footer-main {
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+
+    gap: 50px;
+
+    padding-bottom: 55px;
+}
+
+.footer-logo {
+
+    color: white;
+
+    margin-bottom: 18px;
+}
+
+.footer-brand > p {
+
+    color: #839089;
+
+    max-width: 290px;
+
+    font-size: 11px;
+}
+
+.footer-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.footer-column h4 {
+
+    font-size: 12px;
+
+    margin-bottom: 8px;
+}
+
+.footer-column a,
+.footer-column p {
+
+    color: #829087;
+
+    font-size: 10px;
+
+    transition: .2s;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.footer-bottom {
+
+    border-top: 1px solid #26372e;
+
+    padding: 20px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #637068;
+
+    font-size: 9px;
+}
+
+
+/* ==================================================
+   SEARCH
+================================================== */
+
+.search-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 3000;
+
+    background: rgba(10,30,20,.72);
+
+    backdrop-filter: blur(10px);
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding-top: 130px;
+}
+
+.search-overlay.show {
+    display: flex;
+}
+
+.search-box {
+
+    width: min(620px,90%);
+
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 40px;
+
+    position: relative;
+
+    box-shadow: 0 30px 100px rgba(0,0,0,.25);
+}
+
+.search-box h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 34px;
+
+    margin-bottom: 20px;
+}
+
+.close-search {
+
+    position: absolute;
+
+    right: 20px;
+    top: 15px;
+
+    background: none;
+
+    border: 0;
+
+    font-size: 28px;
+}
+
+.search-input {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 0 15px;
+}
+
+.search-input input {
+
+    flex: 1;
+
+    padding: 15px 5px;
+
+    border: 0;
+
+    outline: 0;
+}
+
+.search-result {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+.search-result strong {
+    font-size: 12px;
+}
+
+.search-result small {
+
+    display: block;
+
+    color: var(--green);
+
+    font-size: 9px;
+}
+
+.search-result button {
+
+    border: 0;
+
+    background: var(--green);
+
+    color: white;
+
+    padding: 7px 10px;
+
+    border-radius: 6px;
+
+    font-size: 9px;
+}
+
+
+/* ==================================================
+   CART
+================================================== */
+
+.cart-backdrop {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.4);
+
+    z-index: 4000;
+
+    display: none;
+}
+
+.cart-backdrop.show {
+    display: block;
+}
+
+
+.cart-drawer {
+
+    position: fixed;
+
+    right: -450px;
+
+    top: 0;
+
+    width: min(430px,92%);
+
+    height: 100vh;
+
+    background: white;
+
+    z-index: 4100;
+
+    transition: .4s;
+
+    display: flex;
+
+    flex-direction: column;
+
+    box-shadow: -20px 0 60px rgba(0,0,0,.15);
+}
+
+.cart-drawer.show {
+    right: 0;
+}
+
+.cart-top {
+
+    padding: 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-top h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 27px;
+}
+
+.cart-top button {
+
+    border: 0;
+
+    background: none;
+
+    font-size: 28px;
+}
+
+.cart-products {
+
+    flex: 1;
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+.empty-cart {
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+.empty-cart > div {
+    font-size: 50px;
+}
+
+.empty-cart h3 {
+    margin: 10px 0 3px;
+}
+
+.empty-cart p {
+
+    color: var(--gray);
+
+    font-size: 11px;
+}
+
+
+.cart-item {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-item h4 {
+
+    font-size: 12px;
+}
+
+.cart-item p {
+
+    color: var(--green);
+
+    font-size: 10px;
+}
+
+.remove-cart {
+
+    width: 28px;
+    height: 28px;
+
+    border: 0;
+
+    border-radius: 7px;
+
+    background: #f6e7e5;
+
+    color: #b5483c;
+}
+
+.cart-bottom {
+
+    padding: 25px;
+
+    border-top: 1px solid var(--border);
+}
+
+.total-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 17px;
+}
+
+.total-row strong {
+
+    color: var(--green);
+
+    font-size: 21px;
+}
+
+.cart-bottom > button {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: 0;
+
+    background: var(--green);
+
+    color: white;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   QUICK VIEW
+================================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(0,0,0,.5);
+
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+
+    width: min(400px,100%);
+
+    padding: 45px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 23px;
+
+    position: relative;
+}
+
+.modal-close {
+
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    border: 0;
+
+    background: none;
+
+    font-size: 25px;
+}
+
+.modal-symbol {
+
+    width: 70px;
+    height: 70px;
+
+    margin: auto auto 20px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 20px;
+
+    background: var(--green-3);
+
+    font-size: 28px;
+}
+
+.modal-box h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 30px;
+}
+
+.modal-box p {
+
+    color: var(--gray);
+
+    font-size: 11px;
+
+    margin: 12px 0 20px;
+}
+
+.modal-box > strong {
+
+    display: block;
+
+    color: var(--green);
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+}
+
+.modal-box > button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: var(--green);
+
+    color: white;
+
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   TOAST
+================================================== */
+
+.toast {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 6000;
+
+    background: #12261a;
+
+    color: white;
+
+    padding: 12px 16px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    transform: translateY(100px);
+
+    opacity: 0;
+
+    transition: .3s;
+}
+
+.toast.show {
+
+    transform: translateY(0);
+
+    opacity: 1;
+}
+
+.toast span {
+
+    width: 23px;
+    height: 23px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--lime);
+
+    color: var(--green);
+
+    font-size: 11px;
+}
+
+.toast p {
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1050px) {
+
+    .hero {
+
+        gap: 30px;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .hero-image-main {
+
+        width: 360px;
+        height: 450px;
+    }
+
+    .category-grid,
+    .product-grid {
+
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .category-photo {
+        height: 260px;
+    }
+
+    .why-section {
+
+        gap: 50px;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    #mainNav {
+
+        position: absolute;
+
+        top: 82px;
+
+        left: 0;
+        right: 0;
+
+        background: white;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 25px;
+
+        gap: 20px;
+
+        box-shadow: 0 20px 30px rgba(0,0,0,.08);
+    }
+
+    #mainNav.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        padding-top: 130px;
+
+        text-align: center;
+    }
+
+    .hero-left {
+        margin: auto;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons,
+    .hero-trust {
+        justify-content: center;
+    }
+
+    .hero-right {
+        height: 500px;
+    }
+
+    .section-top,
+    .shop-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .filters {
+        justify-content: flex-start;
+    }
+
+    .offer-section {
+
+        grid-template-columns: 1fr;
+    }
+
+    .offer-image {
+        height: 280px;
+    }
+
+    .why-section {
+
+        grid-template-columns: 1fr;
+    }
+
+    .why-image {
+        height: 400px;
+    }
+
+    .newsletter {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .newsletter form {
+        width: 100%;
+    }
+
+    .footer-main {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .brand {
+        font-size: 17px;
+    }
+
+    .brand-mark {
+
+        width: 38px;
+        height: 38px;
+    }
+
+    .hero {
+
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero h1 {
+
+        font-size: 51px;
+
+        letter-spacing: -2px;
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+    }
+
+    .hero-right {
+        height: 430px;
+    }
+
+    .hero-image-main {
+
+        width: 290px;
+
+        height: 380px;
+    }
+
+    .fresh-card {
+        left: 0;
+        top: 80px;
+    }
+
+    .delivery-card {
+        right: 0;
+        bottom: 50px;
+    }
+
+    .organic-stamp {
+
+        width: 75px;
+        height: 75px;
+
+        right: 5px;
+    }
+
+    .organic-stamp span {
+        font-size: 18px;
+    }
+
+    .category-grid,
+    .product-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .section-top h2,
+    .shop-header h2 {
+
+        font-size: 40px;
+    }
+
+    .offer-content {
+
+        padding: 40px 30px;
+    }
+
+    .offer-content h2 {
+        font-size: 40px;
+    }
+
+    .why-content h2 {
+        font-size: 40px;
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .numbers {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 30px;
+    }
+
+    .numbers div:nth-child(2) {
+        border: 0;
+    }
+
+    .newsletter h2 {
+        font-size: 36px;
+    }
+
+    .newsletter form {
+
+        flex-direction: column;
+
+        background: transparent;
+
+        gap: 8px;
+
+        padding: 0;
+    }
+
+    .newsletter input {
+
+        background: white;
+
+        border-radius: 8px;
+    }
+
+    .newsletter button {
+
+        padding: 13px;
+    }
+
+    .footer-main {
+
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        gap: 7px;
+    }
+
+}
