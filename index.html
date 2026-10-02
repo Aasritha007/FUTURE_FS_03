@@ -1,86 +1,913 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Fresh Mart Store</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fresh Mart | Freshness Delivered</title>
+
+    <meta name="description"
+          content="Fresh Mart - Your trusted online grocery store for fresh fruits, vegetables, groceries and beverages.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-  <div class="logo">Fresh Mart 🛒</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="container nav-container">
+
+        <a href="#home" class="logo">
+            <span class="logo-icon">🛒</span>
+            <span>
+                <strong>Fresh</strong> Mart
+            </span>
+        </a>
+
+        <nav class="navbar" id="navbar">
+
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#categories" class="nav-link">Categories</a>
+            <a href="#products" class="nav-link">Products</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button class="search-btn" onclick="openSearch()" aria-label="Search">
+                🔍
+            </button>
+
+            <button class="cart-btn" onclick="openCart()" aria-label="Shopping cart">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+
+            <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+
 </header>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <h1>Fresh Groceries Delivered Daily</h1>
-  <p>Quality vegetables, fruits & essentials at best prices</p>
-  <button class="btn-primary">Shop Now</button>
-</section>
 
-<!-- PRODUCTS -->
-<section id="products" class="section">
-  <h2>Our Products</h2>
+<!-- ================= SEARCH BOX ================= -->
 
-  <div class="card-container">
+<div class="search-overlay" id="searchOverlay">
 
-    <!-- SAME IMAGES KEPT -->
-    <div class="card">
-      <img src="images/vegetables.JPG">
-      <h3>Vegetables</h3>
-      <p>Fresh & organic daily</p>
+    <div class="search-box">
+
+        <button class="close-search" onclick="closeSearch()">×</button>
+
+        <h2>What are you looking for?</h2>
+
+        <div class="search-input-wrapper">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search fruits, vegetables, groceries..."
+                onkeyup="searchProducts()"
+            >
+
+            <span>🔍</span>
+
+        </div>
+
+        <div id="searchResults"></div>
+
     </div>
 
-    <div class="card">
-      <img src="images/fruits.JPG">
-      <h3>Fruits</h3>
-      <p>Seasonal and juicy</p>
+</div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-content">
+
+        <div class="hero-text">
+
+            <span class="hero-tag">🌿 FRESH • HEALTHY • NATURAL</span>
+
+            <h1>
+                Freshness
+                <span>Delivered</span>
+                to Your Door
+            </h1>
+
+            <p>
+                Shop fresh fruits, vegetables, daily groceries and refreshing
+                beverages — all carefully selected for your family.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#products" class="btn btn-primary">
+                    Shop Now →
+                </a>
+
+                <a href="#categories" class="btn btn-secondary">
+                    Explore Categories
+                </a>
+
+            </div>
+
+            <div class="hero-features">
+
+                <div class="feature">
+                    <span>🥬</span>
+                    <div>
+                        <strong>100% Fresh</strong>
+                        <small>Quality products</small>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <span>🚚</span>
+                    <div>
+                        <strong>Fast Delivery</strong>
+                        <small>At your doorstep</small>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <span>💳</span>
+                    <div>
+                        <strong>Easy Payment</strong>
+                        <small>Safe & secure</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="hero-circle"></div>
+
+            <div class="hero-card card-one">
+                <span>🍎</span>
+                <div>
+                    <strong>Fresh Fruits</strong>
+                    <small>Picked daily</small>
+                </div>
+            </div>
+
+            <div class="hero-card card-two">
+                <span>🥕</span>
+                <div>
+                    <strong>Organic Veggies</strong>
+                    <small>Farm fresh</small>
+                </div>
+            </div>
+
+            <div class="hero-basket">
+                <img src="images/fruits.JPG" alt="Fresh fruits">
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="card">
-      <img src="images/groceries.JPG">
-      <h3>Groceries</h3>
-      <p>Daily essentials</p>
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories section" id="categories">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-tag">SHOP BY CATEGORY</span>
+
+            <h2>Everything You Need</h2>
+
+            <p>
+                Fresh products and everyday essentials, all in one place.
+            </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <article class="category-card">
+
+                <div class="category-image">
+                    <img src="images/fruits.JPG" alt="Fresh fruits">
+                </div>
+
+                <div class="category-content">
+                    <span class="category-number">01</span>
+                    <h3>Fresh Fruits</h3>
+                    <p>Sweet, juicy and naturally fresh.</p>
+                    <button onclick="filterProducts('fruits')">
+                        Shop Fruits →
+                    </button>
+                </div>
+
+            </article>
+
+
+            <article class="category-card">
+
+                <div class="category-image">
+                    <img src="images/vegetables.JPG" alt="Fresh vegetables">
+                </div>
+
+                <div class="category-content">
+                    <span class="category-number">02</span>
+                    <h3>Vegetables</h3>
+                    <p>Farm-fresh vegetables for every meal.</p>
+                    <button onclick="filterProducts('vegetables')">
+                        Shop Vegetables →
+                    </button>
+                </div>
+
+            </article>
+
+
+            <article class="category-card">
+
+                <div class="category-image">
+                    <img src="images/groceries.JPG" alt="Daily groceries">
+                </div>
+
+                <div class="category-content">
+                    <span class="category-number">03</span>
+                    <h3>Groceries</h3>
+                    <p>Daily essentials for your home.</p>
+                    <button onclick="filterProducts('groceries')">
+                        Shop Groceries →
+                    </button>
+                </div>
+
+            </article>
+
+
+            <article class="category-card">
+
+                <div class="category-image">
+                    <img src="images/drinks.JPG" alt="Refreshing drinks">
+                </div>
+
+                <div class="category-content">
+                    <span class="category-number">04</span>
+                    <h3>Beverages</h3>
+                    <p>Refreshing drinks for every occasion.</p>
+                    <button onclick="filterProducts('drinks')">
+                        Shop Drinks →
+                    </button>
+                </div>
+
+            </article>
+
+        </div>
+
     </div>
 
-    <div class="card">
-      <img src="images/drinks.JPG">
-      <h3>Drinks</h3>
-      <p>Cool & refreshing</p>
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products section" id="products">
+
+    <div class="container">
+
+        <div class="section-heading products-heading">
+
+            <div>
+                <span class="section-tag">OUR PRODUCTS</span>
+                <h2>Fresh Picks For You</h2>
+            </div>
+
+            <div class="filter-buttons">
+
+                <button class="filter-btn active" onclick="filterProducts('all')">
+                    All
+                </button>
+
+                <button class="filter-btn" onclick="filterProducts('fruits')">
+                    Fruits
+                </button>
+
+                <button class="filter-btn" onclick="filterProducts('vegetables')">
+                    Vegetables
+                </button>
+
+                <button class="filter-btn" onclick="filterProducts('groceries')">
+                    Groceries
+                </button>
+
+                <button class="filter-btn" onclick="filterProducts('drinks')">
+                    Drinks
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-grid" id="productGrid">
+
+            <!-- PRODUCT 1 -->
+
+            <article class="product-card" data-category="fruits">
+
+                <div class="product-image">
+                    <span class="discount">15% OFF</span>
+                    <img src="images/fruits.JPG" alt="Fresh fruits">
+                    <button class="quick-view" onclick="showProduct('Fresh Fruit Basket', 299)">
+                        Quick View
+                    </button>
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">Fruits</span>
+
+                    <h3>Fresh Fruit Basket</h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>(48)</span>
+                    </div>
+
+                    <div class="product-bottom">
+                        <div>
+                            <span class="price">₹299</span>
+                            <span class="old-price">₹350</span>
+                        </div>
+
+                        <button class="add-btn"
+                                onclick="addToCart('Fresh Fruit Basket', 299)">
+                            +
+                        </button>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+
+            <article class="product-card" data-category="vegetables">
+
+                <div class="product-image">
+                    <span class="discount">10% OFF</span>
+
+                    <img src="images/vegetables.JPG" alt="Fresh vegetables">
+
+                    <button class="quick-view"
+                            onclick="showProduct('Farm Fresh Vegetables', 199)">
+                        Quick View
+                    </button>
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">Vegetables</span>
+
+                    <h3>Farm Fresh Vegetables</h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>(36)</span>
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div>
+                            <span class="price">₹199</span>
+                            <span class="old-price">₹220</span>
+                        </div>
+
+                        <button class="add-btn"
+                                onclick="addToCart('Farm Fresh Vegetables', 199)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+
+            <article class="product-card" data-category="groceries">
+
+                <div class="product-image">
+
+                    <span class="discount">8% OFF</span>
+
+                    <img src="images/groceries.JPG" alt="Grocery essentials">
+
+                    <button class="quick-view"
+                            onclick="showProduct('Daily Grocery Essentials', 499)">
+                        Quick View
+                    </button>
+
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">Groceries</span>
+
+                    <h3>Daily Grocery Essentials</h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>(52)</span>
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div>
+                            <span class="price">₹499</span>
+                            <span class="old-price">₹540</span>
+                        </div>
+
+                        <button class="add-btn"
+                                onclick="addToCart('Daily Grocery Essentials', 499)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+
+            <article class="product-card" data-category="drinks">
+
+                <div class="product-image">
+
+                    <span class="discount">12% OFF</span>
+
+                    <img src="images/drinks.JPG" alt="Fresh beverages">
+
+                    <button class="quick-view"
+                            onclick="showProduct('Refreshing Beverages', 149)">
+                        Quick View
+                    </button>
+
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">Beverages</span>
+
+                    <h3>Refreshing Beverages</h3>
+
+                    <div class="rating">
+                        ★★★★★ <span>(31)</span>
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div>
+                            <span class="price">₹149</span>
+                            <span class="old-price">₹170</span>
+                        </div>
+
+                        <button class="add-btn"
+                                onclick="addToCart('Refreshing Beverages', 149)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
     </div>
 
-  </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section glass">
-  <h2>About Us</h2>
-  <p>We are a trusted store delivering fresh and quality products to your doorstep.</p>
+
+<!-- ================= PROMO ================= -->
+
+<section class="promo">
+
+    <div class="container promo-content">
+
+        <div>
+
+            <span class="promo-tag">WEEKEND SPECIAL</span>
+
+            <h2>Freshness at Your Fingertips</h2>
+
+            <p>
+                Get fresh groceries delivered straight to your doorstep.
+            </p>
+
+        </div>
+
+        <div class="promo-offer">
+            <strong>20%</strong>
+            <span>OFF</span>
+        </div>
+
+        <a href="#products" class="btn btn-white">
+            Shop Offers →
+        </a>
+
+    </div>
+
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <h2>Contact</h2>
-  <p>📍 Visakhapatnam</p>
-  <p>📞 9876543210</p>
 
-  <div class="btn-group">
-    <button onclick="callStore()">Call Now</button>
-    <button onclick="openWhatsApp()">WhatsApp</button>
-  </div>
+<!-- ================= ABOUT ================= -->
+
+<section class="about section" id="about">
+
+    <div class="container about-grid">
+
+        <div class="about-image">
+
+            <div class="about-image-main">
+                <img src="images/vegetables.JPG" alt="Fresh vegetables">
+            </div>
+
+            <div class="experience-card">
+                <strong>100%</strong>
+                <span>Fresh Quality</span>
+            </div>
+
+        </div>
+
+
+        <div class="about-content">
+
+            <span class="section-tag">WHY FRESH MART?</span>
+
+            <h2>Fresh Food.<br>Happy Family.</h2>
+
+            <p>
+                At Fresh Mart, we believe that good food starts with
+                good ingredients. That's why we carefully select fresh,
+                quality products for you and your family.
+            </p>
+
+            <div class="about-list">
+
+                <div class="about-item">
+                    <span>✓</span>
+                    <div>
+                        <strong>Quality Guaranteed</strong>
+                        <p>Every product is selected with care.</p>
+                    </div>
+                </div>
+
+                <div class="about-item">
+                    <span>✓</span>
+                    <div>
+                        <strong>Farm Fresh</strong>
+                        <p>Fresh produce sourced from trusted suppliers.</p>
+                    </div>
+                </div>
+
+                <div class="about-item">
+                    <span>✓</span>
+                    <div>
+                        <strong>Fast Delivery</strong>
+                        <p>Get your groceries at your doorstep.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<footer>
-  <p>© 2026 Fresh Mart</p>
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+    <div class="container stats-grid">
+
+        <div class="stat">
+            <strong>500+</strong>
+            <span>Fresh Products</span>
+        </div>
+
+        <div class="stat">
+            <strong>2K+</strong>
+            <span>Happy Customers</span>
+        </div>
+
+        <div class="stat">
+            <strong>25+</strong>
+            <span>Trusted Suppliers</span>
+        </div>
+
+        <div class="stat">
+            <strong>24/7</strong>
+            <span>Customer Support</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact section" id="contact">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-tag">GET IN TOUCH</span>
+
+            <h2>We're Here For You</h2>
+
+            <p>
+                Have a question? We'd love to hear from you.
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+
+                <div class="contact-icon">📍</div>
+
+                <h3>Visit Us</h3>
+
+                <p>Fresh Mart Store<br>Visakhapatnam, Andhra Pradesh</p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">📞</div>
+
+                <h3>Call Us</h3>
+
+                <p>+91 98765 43210<br>Mon - Sat, 9 AM - 8 PM</p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">✉️</div>
+
+                <h3>Email Us</h3>
+
+                <p>hello@freshmart.com<br>We reply within 24 hours</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+    <div class="container newsletter-content">
+
+        <div>
+
+            <span class="section-tag">STAY FRESH</span>
+
+            <h2>Get Fresh Deals in Your Inbox</h2>
+
+            <p>
+                Subscribe to receive special offers and fresh updates.
+            </p>
+
+        </div>
+
+
+        <form class="newsletter-form" onsubmit="subscribe(event)">
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <div class="footer-brand">
+
+            <a href="#home" class="logo footer-logo">
+                <span class="logo-icon">🛒</span>
+                <span><strong>Fresh</strong> Mart</span>
+            </a>
+
+            <p>
+                Fresh groceries, happy families.
+                Quality products delivered to your doorstep.
+            </p>
+
+            <div class="social-links">
+
+                <a href="#" aria-label="Instagram">◎</a>
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Twitter">𝕏</a>
+                <a href="#" aria-label="YouTube">▶</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>Quick Links</h3>
+
+            <a href="#home">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>Categories</h3>
+
+            <a href="#products">Fruits</a>
+            <a href="#products">Vegetables</a>
+            <a href="#products">Groceries</a>
+            <a href="#products">Beverages</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>Customer Care</h3>
+
+            <a href="#contact">Contact Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Return Policy</a>
+            <a href="#">Privacy Policy</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <p>
+                © 2026 Fresh Mart. All Rights Reserved.
+            </p>
+
+            <p>
+                Made with ❤️ for fresh living.
+            </p>
+
+        </div>
+
+    </div>
+
 </footer>
+
+
+<!-- ================= CART SIDEBAR ================= -->
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<aside class="cart-sidebar" id="cartSidebar">
+
+    <div class="cart-header">
+
+        <h2>Your Cart</h2>
+
+        <button onclick="closeCart()">×</button>
+
+    </div>
+
+    <div class="cart-items" id="cartItems">
+
+        <div class="empty-cart">
+            <span>🛒</span>
+            <h3>Your cart is empty</h3>
+            <p>Add some fresh products!</p>
+        </div>
+
+    </div>
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+
+            <span>Total</span>
+
+            <strong id="cartTotal">₹0</strong>
+
+        </div>
+
+        <button class="checkout-btn" onclick="checkout()">
+            Proceed to Checkout →
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= PRODUCT MODAL ================= -->
+
+<div class="modal-overlay" id="productModal">
+
+    <div class="product-modal">
+
+        <button class="modal-close" onclick="closeProductModal()">×</button>
+
+        <div class="modal-icon">🛒</div>
+
+        <h2 id="modalProductName">Product</h2>
+
+        <p>
+            Fresh and carefully selected for your family.
+        </p>
+
+        <strong class="modal-price" id="modalProductPrice">
+            ₹0
+        </strong>
+
+        <button
+            class="btn btn-primary modal-add"
+            onclick="addModalProduct()">
+            Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast">
+    <span>✓</span>
+    <p id="toastMessage">Added to cart!</p>
+</div>
+
 
 <script src="script.js"></script>
 
